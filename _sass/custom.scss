@@ -2,8 +2,11 @@
 
 .hero--image {
   position: relative;
-  min-height: 60vh;
-  max-height: 720px;
+  // Matches the source photo's own ratio (2000x1066) so "cover" shows the
+  // full image with zero cropping, at any viewport width, instead of a
+  // fixed min/max-height that crops top/bottom on wide screens.
+  aspect-ratio: 2000 / 1066;
+  min-height: 20rem;
   padding: 2rem 1rem;
   background-size: cover;
   background-position: center;
