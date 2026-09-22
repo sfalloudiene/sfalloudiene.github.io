@@ -37,7 +37,9 @@ article_header:
   background_image:
     src: /assets/images/your-image.jpg
 ```
-This is a stock TeXt theme mechanism (`_layouts/page.html`, `_article_header_type == 'overlay'`), not custom code — it already renders full-bleed on its own, outside the normal content container. Put source images (compressed, e.g. via `ffmpeg -i in.jpg -vf scale=2000:-1 -q:v 4 out.jpg`) in `assets/images/`.
+This is a stock TeXt theme mechanism (`_layouts/page.html`, `_article_header_type == 'overlay'`), not custom code — it already renders full-bleed on its own, outside the normal content container. Put source images (compressed, e.g. via `ffmpeg -i in.jpg -vf scale=2000:-1 -q:v 4 out.jpg`) in `assets/images/`. A dark scrim (`.article__header--overlay .overlay::before` in `_sass/custom.scss`) keeps the white title readable regardless of how bright the photo is — no need to darken the source image itself.
+
+**SEO / social preview image**: also set `image: /assets/images/your-image.jpg` (same path as `cover`) so `jekyll-seo-tag` picks it up for the Open Graph / Twitter Card preview when the post is shared. `cover` and `image` are two separate front-matter keys read by two different things (theme header vs. SEO plugin) — keep them in sync.
 
 The homepage's own hero (index.html `hero:` front matter) is separate custom code (`_layouts/articles.html` + `.hero--image`/`.hero--full-bleed` in `_sass/custom.scss`) — it reuses the theme's `.hero` component but isn't the built-in article overlay mechanism.
 

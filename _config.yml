@@ -23,6 +23,13 @@ baseurl : # does not include hostname
 title   : Serigne Fallou Diene — Blog Dev
 description: > # this means to ignore newlines until "Language & timezone"
   Notes et retours d'expérience d'un développeur : Java, web, mobile et projets perso.
+logo: https://github.com/sfalloudiene.png
+image: /assets/images/home-cover.jpg
+social:
+  name: Serigne Fallou Diene
+  links:
+    - https://github.com/sfalloudiene
+    - https://www.linkedin.com/in/fallou-diene
 
 
 ## => Language and Timezone
@@ -108,7 +115,7 @@ sources: # bootcdn (default), unpkg
 ## => Sharing
 ##############################
 sharing:
-  provider: false # false (default), "addtoany", "addthis", "custom"
+  provider: addtoany # false (default), "addtoany", "addthis", "custom"
 
   ## AddThis
   addthis:
@@ -212,5 +219,6 @@ defaults:
 plugins:
   - jekyll-feed
   - jekyll-paginate
+  - jekyll-seo-tag
   - jekyll-sitemap
   - jemoji
