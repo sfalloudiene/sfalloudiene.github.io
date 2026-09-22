@@ -1,3 +1,16 @@
 <!-- start custom article footer snippet -->
-
+{%- if page.date -%}
+  <div class="article__reactions js-reactions" data-reactions-id="{{ page.id | default: page.url }}">
+    <div class="reactions__stars js-reactions-stars" aria-label="Noter cet article">
+      {%- for _i in (1..5) -%}
+        <button type="button" class="reactions__star js-reactions-star" data-value="{{ _i }}" aria-label="{{ _i }} étoile{% if _i > 1 %}s{% endif %}">★</button>
+      {%- endfor -%}
+      <span class="reactions__stars-label js-reactions-stars-label"></span>
+    </div>
+    <button type="button" class="button button--secondary button--pill reactions__like js-reactions-like">
+      <i class="fas fa-heart"></i>
+      <span class="js-reactions-like-count">0</span>
+    </button>
+  </div>
+{%- endif -%}
 <!-- end custom article footer snippet -->

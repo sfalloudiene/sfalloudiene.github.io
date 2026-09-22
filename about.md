@@ -24,6 +24,7 @@ titles:
   fr-LU   : *FR
   # @end locale config
 key: page-about
+comment: false
 ---
 
 Bonjour, je suis Fallou Diene, ingénieur développement junior chez [Netceler](https://www.netceler.com).
