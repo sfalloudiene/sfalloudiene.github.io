@@ -15,6 +15,7 @@
             <a title="{%- if site.description -%}{{ site.description }}{%- endif -%}" href="{{ __return }}">{{ site.title }}</a>
           {%- endif -%}
         </div>
+        <button class="button button--secondary button--circle js-theme-toggle" title="Changer de thème" aria-label="Changer de thème"><i class="fas fa-moon"></i></button>
         {%- if site.search.provider -%}
           <button class="button button--secondary button--circle search-button js-search-toggle"><i class="fas fa-search"></i></button>
         {%- endif -%}
