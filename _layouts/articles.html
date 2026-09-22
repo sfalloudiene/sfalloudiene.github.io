@@ -37,7 +37,7 @@ layout: page
     {%- assign _hero_image_url = __return -%}
   {%- endif -%}
   <div class="heros">
-    <section class="hero hero--center{% if page.hero.image %} hero--dark hero--image{% endif %}"{% if _hero_image_url %} style="background-image: url({{ _hero_image_url }});"{% endif %}>
+    <section class="hero hero--center{% if page.hero.image %} hero--dark hero--image hero--full-bleed{% endif %}"{% if _hero_image_url %} style="background-image: url({{ _hero_image_url }});"{% endif %}>
       <div class="hero__content">
         <h2>{{ page.hero.title }}</h2>
         {%- if page.hero.excerpt -%}

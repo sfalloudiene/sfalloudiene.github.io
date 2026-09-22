@@ -2,8 +2,7 @@
 
 .hero--image {
   position: relative;
-  border-radius: map-get($base, border-radius-lg);
-  padding: 4rem 1rem;
+  padding: 5rem 1rem;
   background-size: cover;
   background-position: center;
 
@@ -15,13 +14,24 @@
     right: 0;
     bottom: 0;
     background: rgba(0, 0, 0, 0.45);
-    border-radius: inherit;
   }
 
   .hero__content {
     position: relative;
     z-index: 1;
   }
+}
+
+.heros > .hero--full-bleed {
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw !important;
+  margin-right: -50vw !important;
+  margin-top: 0;
+  margin-bottom: map-get($spacers, 4);
+  border-radius: 0;
 }
 
 .article__reactions {

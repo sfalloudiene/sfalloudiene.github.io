@@ -1,6 +1,6 @@
 # sfalloudiene.github.io
 
-Blog personnel de Fallou Diene, construit avec [Jekyll](https://jekyllrb.com/) et le thème [TeXt](https://github.com/kitian616/jekyll-TeXt-theme).
+Blog personnel de Serigne Fallou Diene, construit avec [Jekyll](https://jekyllrb.com/) et le thème [TeXt](https://github.com/kitian616/jekyll-TeXt-theme).
 
 ## Développement local
 

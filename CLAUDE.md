@@ -28,6 +28,19 @@ $env:Path = [System.Environment]::GetEnvironmentVariable("Path","Machine") + ";"
 
 New post: `_posts/YYYY-MM-DD-title.md` with front matter (`layout: article`, `title`, etc.) — see existing posts or theme docs for available front-matter options (TOC, license, sharing, comments are all per-post toggleable, defaults set in `_config.yml`).
 
+**Full-width cover image** (like mincong.io): add to a post's front matter to get a full-bleed photo header with the title/tags/date overlaid on it —
+```yaml
+cover: /assets/images/your-image.jpg
+article_header:
+  type: overlay
+  theme: dark   # dark = white text (for photo backgrounds); light = dark text (plain background, theme default)
+  background_image:
+    src: /assets/images/your-image.jpg
+```
+This is a stock TeXt theme mechanism (`_layouts/page.html`, `_article_header_type == 'overlay'`), not custom code — it already renders full-bleed on its own, outside the normal content container. Put source images (compressed, e.g. via `ffmpeg -i in.jpg -vf scale=2000:-1 -q:v 4 out.jpg`) in `assets/images/`.
+
+The homepage's own hero (index.html `hero:` front matter) is separate custom code (`_layouts/articles.html` + `.hero--image`/`.hero--full-bleed` in `_sass/custom.scss`) — it reuses the theme's `.hero` component but isn't the built-in article overlay mechanism.
+
 ## Project Architecture
 
 ### Skin System

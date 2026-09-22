@@ -27,7 +27,7 @@ key: page-about
 comment: false
 ---
 
-Bonjour, je suis Fallou Diene, ingénieur développement junior chez [Netceler](https://www.netceler.com).
+Bonjour, je suis Serigne Fallou Diene, ingénieur développement junior chez [Netceler](https://www.netceler.com).
 
 Diplômé de l'[ESIGELEC](https://www.esigelec.fr) (dominante ISN, promotion 2026), j'ai fait mon alternance de deux ans chez Netceler en tant que développeur Java, où j'ai ensuite été embauché.
 

@@ -1,6 +1,13 @@
 ---
 title: Bienvenue sur mon blog
 tags: Annonce
+cover: /assets/images/home-cover.jpg
+article_header:
+  type: overlay
+  theme: dark
+  background_color: '#123'
+  background_image:
+    src: /assets/images/home-cover.jpg
 ---
 
 Voilà, ce blog est en ligne. J'avais envie depuis un moment d'avoir un endroit à moi pour noter ce que j'apprends et partager mes projets, plutôt que de laisser ça dispersé entre des notes perso et des dépôts GitHub.
