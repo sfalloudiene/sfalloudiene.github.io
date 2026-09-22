@@ -2,9 +2,14 @@
 
 .hero--image {
   position: relative;
-  padding: 5rem 1rem;
+  min-height: 60vh;
+  max-height: 720px;
+  padding: 2rem 1rem;
   background-size: cover;
   background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   &::before {
     content: "";
