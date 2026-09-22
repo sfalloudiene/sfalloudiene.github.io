@@ -31,6 +31,19 @@ layout: page
 
 {%- assign _type = page.articles.type | default: layout.articles.type -%}
 
+{%- if page.hero -%}
+  <div class="heros">
+    <section class="hero hero--center">
+      <div class="hero__content">
+        <h2>{{ page.hero.title }}</h2>
+        {%- if page.hero.excerpt -%}
+          <p>{{ page.hero.excerpt }}</p>
+        {%- endif -%}
+      </div>
+    </section>
+  </div>
+{%- endif -%}
+
 {%- if _articles -%}
 
   <div class="layout--articles">
