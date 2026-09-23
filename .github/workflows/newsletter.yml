@@ -56,13 +56,28 @@ jobs:
 
             BODY=$(printf "Nouvel article sur le blog :\n\n**%s**\n\nLire l'article complet : %s" "$TITLE" "$URL")
 
-            PAYLOAD=$(jq -n --arg subject "$TITLE" --arg body "$BODY" --arg status "about_to_send" \
-              '{subject: $subject, body: $body, status: $status}')
+            # Buttondown's API creates an email as a draft (or scheduled) - it does
+            # not accept status=about_to_send directly on creation. Sending it
+            # requires a second request that moves the draft into that status.
+            PAYLOAD=$(jq -n --arg subject "$TITLE" --arg body "$BODY" \
+              '{subject: $subject, body: $body}')
 
-            echo "Sending newsletter for: $TITLE ($URL)"
-            curl -sf -X POST "https://api.buttondown.com/v1/emails" \
+            echo "Creating draft for: $TITLE ($URL)"
+            CREATE_RESPONSE=$(curl -sf -X POST "https://api.buttondown.com/v1/emails" \
               -H "Authorization: Token ${BUTTONDOWN_API_KEY}" \
               -H "Content-Type: application/json" \
-              -d "$PAYLOAD"
+              -d "$PAYLOAD")
+
+            EMAIL_ID=$(echo "$CREATE_RESPONSE" | jq -r '.id')
+            if [ -z "$EMAIL_ID" ] || [ "$EMAIL_ID" = "null" ]; then
+              echo "::error::Failed to create Buttondown draft for '$TITLE'. Response: $CREATE_RESPONSE"
+              exit 1
+            fi
+
+            echo "Sending draft $EMAIL_ID for: $TITLE"
+            curl -sf -X PATCH "https://api.buttondown.com/v1/emails/${EMAIL_ID}" \
+              -H "Authorization: Token ${BUTTONDOWN_API_KEY}" \
+              -H "Content-Type: application/json" \
+              -d '{"status": "about_to_send"}'
             echo ""
           done

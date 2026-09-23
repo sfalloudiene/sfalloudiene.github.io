@@ -59,7 +59,7 @@ Site is served at **fallou.dev** via a `CNAME` file at the repo root (committing
 
 The subscribe form on posts and `/blog/` (`.newsletter-subscribe` in `_includes/article/footer/subscribe.html` and `blog/index.html`) posts to Buttondown's hosted subscribe endpoint directly — no code involved.
 
-Buttondown's built-in "RSS-to-email" auto-send is a paid feature (Basic plan, $9/mo), so instead `.github/workflows/newsletter.yml` replicates it for free: on every push to `main` that adds a file under `_posts/`, it diffs the push range, and for each newly-added post calls the Buttondown API (`POST /v1/emails`, `status: about_to_send`) to create and immediately send an email to subscribers with the title and a link to the post.
+Buttondown's built-in "RSS-to-email" auto-send is a paid feature (Basic plan, $9/mo), so instead `.github/workflows/newsletter.yml` replicates it for free: on every push to `main` that adds a file under `_posts/`, it diffs the push range, and for each newly-added post calls the Buttondown API to email subscribers with the title and a link to the post. Sending is two calls (per Buttondown's documented email state machine, `docs.buttondown.com/api-reference/emails`): `POST /v1/emails` creates a draft (the API doesn't accept `status: about_to_send` at creation time), then `PATCH /v1/emails/{id}` with `{"status": "about_to_send"}` moves it into the state that Buttondown sends automatically.
 
 Requires a `BUTTONDOWN_API_KEY` repo secret (Settings → Secrets and variables → Actions), generated from the Buttondown dashboard (Settings → API). Without it, the workflow no-ops with a warning instead of failing the build.
 
