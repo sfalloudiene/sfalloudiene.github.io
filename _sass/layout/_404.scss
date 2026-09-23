@@ -11,4 +11,11 @@
       font-size: map-get($base, font-size-xl) * 1.2;
     }
   }
+
+  .sign__actions {
+    display: flex;
+    justify-content: center;
+    gap: 0.75rem;
+    margin-top: map-get($spacers, 3);
+  }
 }
