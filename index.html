@@ -1,11 +1,66 @@
 ---
-layout: home
-hero:
-  title: Serigne Fallou Diene
-  image: /assets/images/home-cover.jpg
-  excerpt: >
-    Ingénieur développement junior chez Netceler. Ce blog rassemble mes notes et
-    retours d'expérience sur mes projets et mon apprentissage du développement.
-# articles:
-#   excerpt_type: html
+layout: page
+show_title: false
+title: Accueil
 ---
+
+<div class="portfolio-hero">
+  <div class="portfolio-hero__photo">
+    <img src="{{ '/assets/images/profile.jpg' | relative_url }}" alt="Photo de Serigne Fallou Diene">
+  </div>
+  <div class="portfolio-hero__content">
+    <h1>Serigne Fallou Diene</h1>
+    <p class="portfolio-hero__tagline">Ingénieur développement chez Netceler — Java, web &amp; mobile.</p>
+    <p>Diplômé de l'ESIGELEC (dominante ISN, promotion 2026). Je construis des applications Java côté entreprise, et je bricole des projets perso sur mon temps libre. Ce site rassemble mon parcours, mes projets, et mes notes techniques.</p>
+    <div class="portfolio-hero__actions">
+      <a class="button button--primary button--pill" href="{{ '/blog/' | relative_url }}">Lire le blog</a>
+      <a class="button button--secondary button--pill" href="{{ '/about.html' | relative_url }}">À propos</a>
+    </div>
+    {%- include author-links.html author=site.author -%}
+  </div>
+</div>
+
+<section class="timeline-section">
+  <h2 class="timeline-section__heading">Expérience</h2>
+  <div class="timeline">
+
+    <div class="timeline__item">
+      <div class="timeline__date">Sept. 2026 — Aujourd'hui</div>
+      <h3 class="timeline__title">Ingénieur développement</h3>
+      <div class="timeline__subtitle">Netceler · CDI · Valence, France</div>
+    </div>
+
+    <div class="timeline__item">
+      <div class="timeline__date">Sept. 2024 — Sept. 2026</div>
+      <h3 class="timeline__title">Développeur Java</h3>
+      <div class="timeline__subtitle">Netceler · Alternance · Valence, France</div>
+    </div>
+
+    <div class="timeline__item">
+      <div class="timeline__date">Juil. 2024 — Août 2024</div>
+      <h3 class="timeline__title">Stage ouvrier</h3>
+      <div class="timeline__subtitle">Comité d'organisation des Jeux Olympiques et Paralympiques de Paris 2024 · Paris, France</div>
+      <p class="timeline__desc">Logistique : gestion des équipements sportifs des athlètes.</p>
+    </div>
+
+  </div>
+</section>
+
+<section class="timeline-section">
+  <h2 class="timeline-section__heading">Formation</h2>
+  <div class="timeline">
+
+    <div class="timeline__item">
+      <div class="timeline__date">Sept. 2023 — Févr. 2026</div>
+      <h3 class="timeline__title">ESIGELEC</h3>
+      <div class="timeline__subtitle">École d'ingénieurs généralistes · Dominante ISN</div>
+    </div>
+
+    <div class="timeline__item">
+      <div class="timeline__date">2021 — 2023</div>
+      <h3 class="timeline__title">Classes préparatoires scientifiques</h3>
+      <div class="timeline__subtitle">Cours Sacré-Cœur / ESMT / ESIGELEC</div>
+    </div>
+
+  </div>
+</section>

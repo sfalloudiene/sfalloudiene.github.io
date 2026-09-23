@@ -4,7 +4,7 @@ This file provides guidance to Claude Code when working with code in this reposi
 
 ## What this is
 
-Personal blog (`sfalloudiene.github.io`) built on the [Jekyll TeXt theme](https://github.com/kitian616/jekyll-TeXt-theme).
+Personal portfolio + blog (**fallou.dev**, custom domain — hosted on GitHub Pages at `sfalloudiene.github.io`/`sfalloudiene/sfalloudiene.github.io`, repo name unchanged) built on the [Jekyll TeXt theme](https://github.com/kitian616/jekyll-TeXt-theme).
 The theme source was vendored directly into this repo (not used as a remote_theme/gem dependency) so it can be freely customized. Theme-dev-only tooling (npm lint/build scripts, Docker, Travis CI, the theme's own docs/test sites, gemspec/gem-release flow) was stripped out — this repo only contains what's needed to write posts and run the site.
 
 `upstream` remote still points to the original theme repo, in case future theme updates are worth pulling in manually.
@@ -41,7 +41,19 @@ This is a stock TeXt theme mechanism (`_layouts/page.html`, `_article_header_typ
 
 **SEO / social preview image**: also set `image: /assets/images/your-image.jpg` (same path as `cover`) so `jekyll-seo-tag` picks it up for the Open Graph / Twitter Card preview when the post is shared. `cover` and `image` are two separate front-matter keys read by two different things (theme header vs. SEO plugin) — keep them in sync.
 
-The homepage's own hero (index.html `hero:` front matter) is separate custom code (`_layouts/articles.html` + `.hero--image`/`.hero--full-bleed` in `_sass/custom.scss`) — it reuses the theme's `.hero` component but isn't the built-in article overlay mechanism.
+**Page title / SEO**: `{% seo %}` in `_includes/head.html` (jekyll-seo-tag) generates `<title>`, meta description, Open Graph, Twitter Card, canonical link, JSON-LD — it only reads a plain `page.title` string. Pages that use the theme's multi-locale `titles:` hash (about.md, archive.html, blog/index.html, 404.html) need a **separate plain `title:`** front-matter key too, or their browser tab title silently falls back to the generic site title. Keep both in sync when adding a new special page.
+
+## Site structure
+
+- **`/` (index.html)** — portfolio homepage: photo, tagline, bio, experience/education timeline (custom HTML, `layout: page`, `show_title: false`). Not a blog listing.
+- **`/blog/` (blog/index.html)** — the paginated post list (what used to be at `/`), `layout: home` → `articles` → paginator. **Must stay named `index.html` inside a `blog/` directory** — the legacy `jekyll-paginate` gem only paginates a page literally named `index.html`, and only if `paginate_path` (in `_config.yml`) shares its directory. Renaming either one breaks pagination silently (the page renders with zero posts, no error).
+- **`site.paths.home`** is overridden to `/blog/` in `_config.yml` (used by `paginator.html`'s "back to page 1" link) — `site.paths.root` stays `/` (site logo/title still links to the portfolio).
+- The old homepage hero mechanism (`page.hero` in `_layouts/articles.html`, `.hero--image`/`.hero--full-bleed` in `_sass/custom.scss`) still exists and still works, but is unused now that `/blog/` has no hero front matter — it was built for the pre-portfolio homepage and is kept in case a hero banner is wanted on `/blog/` again.
+- Portfolio-specific styles (`.portfolio-hero*`, `.timeline*`) live in `_sass/custom.scss`.
+
+## Custom domain
+
+Site is served at **fallou.dev** via a `CNAME` file at the repo root (committing it is equivalent to setting the custom domain in repo Settings → Pages). DNS is 4 A records at the registrar pointing `fallou.dev` to GitHub Pages' IPs (185.199.108/109/110/111.153) — that part isn't in this repo and isn't controllable from here.
 
 ## Project Architecture
 
