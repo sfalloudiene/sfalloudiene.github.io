@@ -26,7 +26,15 @@ titles:
   tr      : &TR       Blog
   # @end locale config
 key: page-blog
+articles:
+  data_source: none
 ---
+
+<div class="recent-posts__grid">
+  {%- for post in paginator.posts -%}
+    {%- include post-card.html post=post -%}
+  {%- endfor -%}
+</div>
 
 <div class="newsletter-subscribe newsletter-subscribe--boxed">
   <p class="newsletter-subscribe__text"><strong>Envie de recevoir mes prochains articles par email ?</strong></p>
