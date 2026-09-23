@@ -11,7 +11,23 @@
 {%- include head/favicon.html -%}
 
 {%- include snippets/prepend-baseurl.html path='/assets/css/main.css' -%}
-<link rel="stylesheet" href="{{ __return }}">
+{%- assign _light_css = __return -%}
+{%- include snippets/prepend-baseurl.html path='/assets/css/dark.css' -%}
+{%- assign _dark_css = __return -%}
+<link rel="stylesheet" id="theme-css" href="{{ _light_css }}" data-light-href="{{ _light_css }}" data-dark-href="{{ _dark_css }}">
+<script>
+  (function () {
+    var STORAGE_KEY = 'theme-skin';
+    var stored = null;
+    try { stored = localStorage.getItem(STORAGE_KEY); } catch (e) {}
+    var theme = stored || (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    if (theme === 'dark') {
+      var link = document.getElementById('theme-css');
+      link.setAttribute('href', link.getAttribute('data-dark-href'));
+    }
+    document.documentElement.setAttribute('data-theme', theme);
+  })();
+</script>
 
 {%- include snippets/get-sources.html -%}
 {%- assign _sources = __return -%}

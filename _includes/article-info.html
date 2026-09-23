@@ -65,6 +65,10 @@
               {%- include snippets/get-locale-string.html key='ARTICLE_DATE_FORMAT' -%}
               <i class="far fa-calendar-alt"></i> <span>{{ include.article.date | date: __return }}</span>
             </li>
+            <li>
+              {%- include snippets/reading-time.html article=include.article -%}
+              <i class="far fa-clock"></i> <span>{{ __return }} min de lecture</span>
+            </li>
           {%- endif -%}
 
           {%- if _pageview -%}

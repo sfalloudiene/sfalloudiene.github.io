@@ -1,0 +1,6 @@
+{%- assign _words = include.article.content | strip_html | number_of_words -%}
+{%- assign _minutes = _words | divided_by: 200 -%}
+{%- if _minutes < 1 -%}
+  {%- assign _minutes = 1 -%}
+{%- endif -%}
+{%- assign __return = _minutes -%}
