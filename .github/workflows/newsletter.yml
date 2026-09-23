@@ -54,11 +54,7 @@ jobs:
             NAME_PART=$(echo "$SLUG" | sed "s/^${DATE_PART}-//")
             URL="${SITE_URL}/${YEAR}/${MONTH}/${DAY}/${NAME_PART}.html"
 
-            BODY="Nouvel article sur le blog :
-
-**${TITLE}**
-
-Lire l'article complet : ${URL}"
+            BODY=$(printf "Nouvel article sur le blog :\n\n**%s**\n\nLire l'article complet : %s" "$TITLE" "$URL")
 
             PAYLOAD=$(jq -n --arg subject "$TITLE" --arg body "$BODY" --arg status "about_to_send" \
               '{subject: $subject, body: $body, status: $status}')
