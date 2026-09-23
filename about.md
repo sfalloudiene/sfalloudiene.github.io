@@ -49,6 +49,34 @@ Ce site rassemble mon parcours, mes projets, et mes notes techniques.
 <div class="skill-badge__icon"><img src="{{ '/assets/images/icons/javascript.svg' | relative_url }}" alt="JavaScript" loading="lazy"></div>
 <span class="skill-badge__label">JavaScript</span>
 </div>
+<div class="skill-badge">
+<div class="skill-badge__icon"><img src="{{ '/assets/images/icons/c.svg' | relative_url }}" alt="C" loading="lazy"></div>
+<span class="skill-badge__label">C</span>
+</div>
+<div class="skill-badge">
+<div class="skill-badge__icon"><img src="{{ '/assets/images/icons/python.svg' | relative_url }}" alt="Python" loading="lazy"></div>
+<span class="skill-badge__label">Python</span>
+</div>
+<div class="skill-badge">
+<div class="skill-badge__icon"><img src="{{ '/assets/images/icons/html5.svg' | relative_url }}" alt="HTML/CSS" loading="lazy"></div>
+<span class="skill-badge__label">HTML/CSS</span>
+</div>
+<div class="skill-badge">
+<div class="skill-badge__icon"><i class="fas fa-database"></i></div>
+<span class="skill-badge__label">PL/SQL</span>
+</div>
+<div class="skill-badge">
+<div class="skill-badge__icon"><img src="{{ '/assets/images/icons/kubernetes.svg' | relative_url }}" alt="Kubernetes" loading="lazy"></div>
+<span class="skill-badge__label">Kubernetes</span>
+</div>
+<div class="skill-badge">
+<div class="skill-badge__icon"><img src="{{ '/assets/images/icons/nodejs.svg' | relative_url }}" alt="Node.js" loading="lazy"></div>
+<span class="skill-badge__label">Node.js</span>
+</div>
+<div class="skill-badge">
+<div class="skill-badge__icon"><img src="{{ '/assets/images/icons/react.svg' | relative_url }}" alt="React" loading="lazy"></div>
+<span class="skill-badge__label">React</span>
+</div>
 </div>
 </div>
 
