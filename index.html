@@ -27,7 +27,8 @@ title: Accueil
     {%- for post in site.posts limit: 3 -%}
       <a class="recent-post-card" href="{{ post.url | relative_url }}">
         {%- if post.cover -%}
-          <div class="recent-post-card__image" style="background-image: url('{{ post.cover | relative_url }}');"></div>
+          {%- include snippets/get-nav-url.html path=post.cover -%}
+          <div class="recent-post-card__image" style="background-image: url('{{ __return }}');"></div>
         {%- endif -%}
         <div class="recent-post-card__body">
           {%- if post.tags -%}
