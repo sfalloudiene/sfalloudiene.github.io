@@ -55,6 +55,14 @@ This is a stock TeXt theme mechanism (`_layouts/page.html`, `_article_header_typ
 
 Site is served at **fallou.dev** via a `CNAME` file at the repo root (committing it is equivalent to setting the custom domain in repo Settings → Pages). DNS is 4 A records at the registrar pointing `fallou.dev` to GitHub Pages' IPs (185.199.108/109/110/111.153) — that part isn't in this repo and isn't controllable from here.
 
+## Newsletter (Buttondown)
+
+The subscribe form on posts and `/blog/` (`.newsletter-subscribe` in `_includes/article/footer/subscribe.html` and `blog/index.html`) posts to Buttondown's hosted subscribe endpoint directly — no code involved.
+
+Buttondown's built-in "RSS-to-email" auto-send is a paid feature (Basic plan, $9/mo), so instead `.github/workflows/newsletter.yml` replicates it for free: on every push to `main` that adds a file under `_posts/`, it diffs the push range, and for each newly-added post calls the Buttondown API (`POST /v1/emails`, `status: about_to_send`) to create and immediately send an email to subscribers with the title and a link to the post.
+
+Requires a `BUTTONDOWN_API_KEY` repo secret (Settings → Secrets and variables → Actions), generated from the Buttondown dashboard (Settings → API). Without it, the workflow no-ops with a warning instead of failing the build.
+
 ## Project Architecture
 
 ### Skin System

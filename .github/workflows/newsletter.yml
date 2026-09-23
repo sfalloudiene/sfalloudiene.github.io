@@ -1,0 +1,72 @@
+name: Notify subscribers of new posts
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '_posts/**'
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Find new posts and email subscribers via Buttondown
+        env:
+          BUTTONDOWN_API_KEY: ${{ secrets.BUTTONDOWN_API_KEY }}
+          SITE_URL: https://fallou.dev
+          BEFORE_SHA: ${{ github.event.before }}
+          AFTER_SHA: ${{ github.sha }}
+        run: |
+          set -e
+
+          if [ -z "$BUTTONDOWN_API_KEY" ]; then
+            echo "::warning::BUTTONDOWN_API_KEY secret is not set - skipping newsletter send."
+            exit 0
+          fi
+
+          # BEFORE_SHA is all-zeros when the branch/history doesn't give us a
+          # real previous commit (e.g. force-push); fall back to the last commit only.
+          if [ "$BEFORE_SHA" = "0000000000000000000000000000000000000000" ] || ! git cat-file -e "$BEFORE_SHA" 2>/dev/null; then
+            BEFORE_SHA=$(git rev-parse "${AFTER_SHA}^" 2>/dev/null || echo "$AFTER_SHA")
+          fi
+
+          NEW_POSTS=$(git diff --name-status "$BEFORE_SHA" "$AFTER_SHA" -- '_posts/*.md' | awk '$1=="A" {print $2}')
+
+          if [ -z "$NEW_POSTS" ]; then
+            echo "No new posts in this push. Nothing to send."
+            exit 0
+          fi
+
+          echo "$NEW_POSTS" | while IFS= read -r POST; do
+            [ -z "$POST" ] && continue
+
+            TITLE=$(awk -F': ' '/^title:/ {print $2; exit}' "$POST" | sed "s/^['\"]//; s/['\"]$//")
+            SLUG=$(basename "$POST" .md)
+            DATE_PART=$(echo "$SLUG" | grep -oE '^[0-9]{4}-[0-9]{2}-[0-9]{2}')
+            YEAR=$(echo "$DATE_PART" | cut -d- -f1)
+            MONTH=$(echo "$DATE_PART" | cut -d- -f2)
+            DAY=$(echo "$DATE_PART" | cut -d- -f3)
+            NAME_PART=$(echo "$SLUG" | sed "s/^${DATE_PART}-//")
+            URL="${SITE_URL}/${YEAR}/${MONTH}/${DAY}/${NAME_PART}.html"
+
+            BODY="Nouvel article sur le blog :
+
+**${TITLE}**
+
+Lire l'article complet : ${URL}"
+
+            PAYLOAD=$(jq -n --arg subject "$TITLE" --arg body "$BODY" --arg status "about_to_send" \
+              '{subject: $subject, body: $body, status: $status}')
+
+            echo "Sending newsletter for: $TITLE ($URL)"
+            curl -sf -X POST "https://api.buttondown.com/v1/emails" \
+              -H "Authorization: Token ${BUTTONDOWN_API_KEY}" \
+              -H "Content-Type: application/json" \
+              -d "$PAYLOAD"
+            echo ""
+          done
