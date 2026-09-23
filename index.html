@@ -32,3 +32,12 @@ title: Accueil
     <a class="button button--secondary button--pill" href="{{ '/blog/' | relative_url }}">Voir tous les articles</a>
   </div>
 </section>
+
+<div class="newsletter-subscribe newsletter-subscribe--boxed">
+  <p class="newsletter-subscribe__text"><strong>Envie de recevoir mes prochains articles par email ?</strong></p>
+  <form action="https://buttondown.com/api/emails/embed-subscribe/serigne_fallou" method="post" class="newsletter-subscribe__form">
+    <input type="email" name="email" placeholder="ton@email.com" required class="newsletter-subscribe__input">
+    <button type="submit" class="button button--primary button--pill">S'abonner</button>
+  </form>
+  <p class="newsletter-subscribe__note">Un email à chaque nouvel article, rien d'autre. Désabonnement en un clic.</p>
+</div>
