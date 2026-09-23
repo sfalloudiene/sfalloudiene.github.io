@@ -101,3 +101,67 @@ Ce site rassemble mon parcours, mes projets, et mes notes techniques.
 
 </div>
 </section>
+
+<section class="timeline-section">
+<h2 class="timeline-section__heading">Compétences techniques</h2>
+
+<div class="skills">
+<div class="skills__category">
+<h3 class="skills__category-title">Langages</h3>
+<div class="skills__grid">
+<div class="skill-badge">
+<div class="skill-badge__icon"><img src="{{ '/assets/images/icons/java.svg' | relative_url }}" alt="Java" loading="lazy"></div>
+<span class="skill-badge__label">Java</span>
+</div>
+<div class="skill-badge">
+<div class="skill-badge__icon"><img src="{{ '/assets/images/icons/javascript.svg' | relative_url }}" alt="JavaScript" loading="lazy"></div>
+<span class="skill-badge__label">JavaScript</span>
+</div>
+</div>
+</div>
+
+<div class="skills__category">
+<h3 class="skills__category-title">Tests</h3>
+<div class="skills__grid">
+<div class="skill-badge">
+<div class="skill-badge__icon"><img src="{{ '/assets/images/icons/playwright.svg' | relative_url }}" alt="Playwright" loading="lazy"></div>
+<span class="skill-badge__label">Playwright</span>
+</div>
+<div class="skill-badge">
+<div class="skill-badge__icon"><img src="{{ '/assets/images/icons/cucumber.svg' | relative_url }}" alt="Cucumber" loading="lazy"></div>
+<span class="skill-badge__label">Cucumber</span>
+</div>
+<div class="skill-badge">
+<div class="skill-badge__icon"><i class="fas fa-chart-bar"></i></div>
+<span class="skill-badge__label">Allure Report</span>
+</div>
+</div>
+</div>
+
+<div class="skills__category">
+<h3 class="skills__category-title">CI/CD &amp; Outils</h3>
+<div class="skills__grid">
+<div class="skill-badge">
+<div class="skill-badge__icon"><img src="{{ '/assets/images/icons/jenkins.svg' | relative_url }}" alt="Jenkins" loading="lazy"></div>
+<span class="skill-badge__label">Jenkins</span>
+</div>
+<div class="skill-badge">
+<div class="skill-badge__icon"><img src="{{ '/assets/images/icons/bitbucket.svg' | relative_url }}" alt="Bitbucket" loading="lazy"></div>
+<span class="skill-badge__label">Bitbucket</span>
+</div>
+<div class="skill-badge">
+<div class="skill-badge__icon"><img src="{{ '/assets/images/icons/github.svg' | relative_url }}" alt="GitHub" loading="lazy"></div>
+<span class="skill-badge__label">GitHub</span>
+</div>
+<div class="skill-badge">
+<div class="skill-badge__icon"><img src="{{ '/assets/images/icons/sonarqube.svg' | relative_url }}" alt="SonarQube" loading="lazy"></div>
+<span class="skill-badge__label">Sonar</span>
+</div>
+<div class="skill-badge">
+<div class="skill-badge__icon"><i class="fas fa-code-branch"></i></div>
+<span class="skill-badge__label">OpenRewrite</span>
+</div>
+</div>
+</div>
+</div>
+</section>
