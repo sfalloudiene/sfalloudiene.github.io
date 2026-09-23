@@ -31,6 +31,26 @@
   color: $header-text-color !important;
 }
 
+// Collapsible mobile nav: hidden hamburger button on desktop, shown + toggles
+// the nav list on small screens so the header doesn't take two tall rows.
+.js-nav-toggle {
+  display: none;
+  @include media-breakpoint-down(md) {
+    @include flexbox();
+  }
+}
+
+@include media-breakpoint-down(md) {
+  .js-navigation {
+    display: none;
+    width: 100%;
+  }
+
+  .header--nav-open .js-navigation {
+    display: block;
+  }
+}
+
 .hero--image {
   position: relative;
   // Matches the source photo's own ratio (2000x1066) so "cover" shows the
