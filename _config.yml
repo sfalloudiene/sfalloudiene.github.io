@@ -20,8 +20,8 @@ text_skin: default # "default" (default), "dark", "forest", "ocean", "chocolate"
 highlight_theme: default # "default" (default), "tomorrow", "tomorrow-night", "tomorrow-night-eighties", "tomorrow-night-blue", "tomorrow-night-bright"
 url     : https://fallou.dev # the base hostname & protocol for your site e.g. https://www.someone.com
 baseurl : # does not include hostname
-title   : Serigne Fallou Diene 
-Ingénieur développement
+title   : Serigne Fallou Diene
+subtitle: Ingénieur développement junior
 description: > # this means to ignore newlines until "Language & timezone"
   Notes et retours d'expérience d'un développeur : Java, web, mobile et projets perso.
 logo: https://github.com/sfalloudiene.png
@@ -36,7 +36,7 @@ social:
 ## => Language and Timezone
 ##############################
 lang: fr # the language of your site, default as "en"
-timezone: Africa/Dakar # see https://en.wikipedia.org/wiki/List_of_tz_database_time_zones for the available values
+timezone: Europe/Paris # see https://en.wikipedia.org/wiki/List_of_tz_database_time_zones for the available values
 
 
 ## => Author and Social
@@ -47,7 +47,7 @@ author:
   url       : https://fallou.dev/
   avatar    : https://github.com/sfalloudiene.png # path or url of avatar image (square)
   bio       : Ingénieur développement junior chez Netceler. Diplômé de l'ESIGELEC (dominante ISN, promo 2026).
-  email     : falloudiene71@gmail.com
+  email     : #
   facebook  : # "user_name" the last part of your profile url, e.g. https://www.facebook.com/user_name
   twitter   : # "user_name" the last part of your profile url, e.g. https://twitter.com/user_name
   weibo     : # "user_id"   the last part of your profile url, e.g. https://www.weibo.com/user_id/profile?...
