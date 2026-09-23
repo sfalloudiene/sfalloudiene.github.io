@@ -1,21 +1,19 @@
 {%- assign _post = include.post -%}
 <a class="recent-post-card" href="{{ _post.url | relative_url }}">
-  {%- if _post.cover -%}
-    {%- include snippets/get-nav-url.html path=_post.cover -%}
-    <div class="recent-post-card__image" style="background-image: url('{{ __return }}');"></div>
-  {%- endif -%}
-  <div class="recent-post-card__body">
-    {%- if _post.tags -%}
-      <div class="recent-post-card__tags">
-        {%- for tag in _post.tags -%}
-          <span class="button button--secondary button--pill button--sm">{{ tag }}</span>
-        {%- endfor -%}
+  <div class="recent-post-card__image"{% if _post.cover %}{%- include snippets/get-nav-url.html path=_post.cover -%} style="background-image: url('{{ __return }}');"{% endif %}>
+    <div class="recent-post-card__overlay">
+      {%- if _post.tags -%}
+        <div class="recent-post-card__tags">
+          {%- for tag in _post.tags -%}
+            <span class="recent-post-card__tag">{{ tag }}</span>
+          {%- endfor -%}
+        </div>
+      {%- endif -%}
+      <h3 class="recent-post-card__title">{{ _post.title }}</h3>
+      <div class="recent-post-card__meta">
+        {%- include snippets/reading-time.html article=_post -%}
+        <i class="far fa-clock"></i> {{ __return }} min de lecture
       </div>
-    {%- endif -%}
-    <h3 class="recent-post-card__title">{{ _post.title }}</h3>
-    <div class="recent-post-card__meta">
-      {%- include snippets/reading-time.html article=_post -%}
-      <i class="far fa-clock"></i> {{ __return }} min de lecture
     </div>
   </div>
 </a>
