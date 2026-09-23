@@ -20,7 +20,7 @@
     var STORAGE_KEY = 'theme-skin';
     var stored = null;
     try { stored = localStorage.getItem(STORAGE_KEY); } catch (e) {}
-    var theme = stored || (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    var theme = stored || 'dark';
     if (theme === 'dark') {
       var link = document.getElementById('theme-css');
       link.setAttribute('href', link.getAttribute('data-dark-href'));
