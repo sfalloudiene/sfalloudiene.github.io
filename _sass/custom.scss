@@ -549,4 +549,49 @@ $nav-font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetic
   color: $text-color-l;
 }
 
+// Newsletter subscribe form (Buttondown)
+.newsletter-subscribe {
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  border: 1px solid $border-color-l;
+  border-radius: map-get($base, border-radius-lg);
+  background: rgba($main-color-1, 0.04);
+}
+
+.newsletter-subscribe--boxed {
+  margin: 2.5rem 0;
+}
+
+.newsletter-subscribe__text {
+  margin-bottom: 0.75rem;
+}
+
+.newsletter-subscribe__form {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.newsletter-subscribe__input {
+  flex: 1 1 220px;
+  min-width: 0;
+  padding: 0.5rem 0.9rem;
+  border: 1px solid $border-color-l;
+  border-radius: map-get($base, border-radius-lg);
+  background: $background-color;
+  color: $text-color;
+  font-family: $nav-font-stack;
+
+  &:focus {
+    outline: none;
+    border-color: $main-color-1;
+  }
+}
+
+.newsletter-subscribe__note {
+  margin: 0.6rem 0 0;
+  font-size: 0.78rem;
+  color: $text-color-l;
+}
+
 /* end custom scss snippet */

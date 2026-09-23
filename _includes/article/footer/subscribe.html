@@ -3,4 +3,13 @@
 {%- assign _paths_rss = __return -%}
 {%- include snippets/get-locale-string.html key='SUBSCRIBE' -%}
 {%- assign _locale_nav_subscribe = __return -%}
-<div class="subscribe"><i class="fas fa-rss"></i> <a type="application/rss+xml" href="{{ _paths_rss }}">{{ _locale_nav_subscribe }}</a></div>
+<div class="newsletter-subscribe">
+  <p class="newsletter-subscribe__text"><strong>Envie de recevoir mes prochains articles par email ?</strong></p>
+  <form action="https://buttondown.com/api/emails/embed-subscribe/serigne_fallou" method="post" class="newsletter-subscribe__form">
+    <input type="email" name="email" placeholder="ton@email.com" required class="newsletter-subscribe__input">
+    <button type="submit" class="button button--primary button--pill">S'abonner</button>
+  </form>
+  <p class="newsletter-subscribe__note">Un email à chaque nouvel article, rien d'autre. Désabonnement en un clic.</p>
+</div>
+
+<div class="subscribe"><i class="fas fa-rss"></i> <a type="application/rss+xml" href="{{ _paths_rss }}">{{ _locale_nav_subscribe }} (RSS)</a></div>
