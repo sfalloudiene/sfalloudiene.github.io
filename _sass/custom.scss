@@ -99,6 +99,22 @@ $nav-font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetic
   .header--nav-open .js-navigation {
     display: block;
   }
+
+  // Stack the links one per row instead of the desktop's nowrap flex row,
+  // which was forcing long labels like "À propos" to wrap onto two lines.
+  .js-navigation > ul {
+    height: auto;
+    flex-direction: column;
+    align-items: stretch;
+    padding: 0.5rem 0;
+  }
+
+  .header .navigation__item a {
+    display: block;
+    width: 100%;
+    padding: 0.6rem 0.25rem;
+    border-radius: 0;
+  }
 }
 
 // The theme repeats the post excerpt as a subtitle on the cover photo AND as
@@ -279,6 +295,13 @@ $nav-font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetic
   font-weight: map-get($base, font-weight-bold);
   color: $main-color-1;
   margin-bottom: 0.75rem;
+}
+
+.portfolio-hero__disclaimer {
+  font-size: 0.8rem;
+  color: $text-color-l;
+  font-style: italic;
+  margin-top: 0.5rem;
 }
 
 .portfolio-hero__actions {
