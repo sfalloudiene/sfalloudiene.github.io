@@ -1,13 +1,13 @@
 ---
 title: Bienvenue sur mon blog
 tags: Annonce
-cover: /assets/images/home-cover.jpg
+cover: https://unsplash.com/photos/brown-and-white-boat-on-water-during-daytime-otyotHVtVBY
 article_header:
   type: overlay
   theme: dark
   background_color: '#123'
   background_image:
-    src: /assets/images/home-cover.jpg
+    src: https://unsplash.com/photos/brown-and-white-boat-on-water-during-daytime-otyotHVtVBY
 ---
 
 Voilà, ce blog est en ligne. J'avais envie depuis un moment d'avoir un endroit à moi pour noter ce que j'apprends et partager mes projets, plutôt que de laisser ça dispersé entre des notes perso et des dépôts GitHub.
