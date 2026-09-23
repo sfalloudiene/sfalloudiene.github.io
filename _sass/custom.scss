@@ -1,5 +1,34 @@
 /* start custom scss snippet */
 
+// En-tête : nom en or, sous-titre et liens du menu en noir
+.header__brand a {
+  display: inline-flex;
+  flex-direction: column;
+  line-height: 1.2;
+  color: #B8912F !important;
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: 700;
+  text-decoration: none;
+
+  &:hover {
+    color: #9C7A22 !important;
+    text-decoration: none;
+  }
+
+  &::after {
+    content: "Ing\00E9nieur d\00E9veloppement";
+    margin-top: .15rem;
+    color: #000;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-size: .7em;
+    font-weight: 400;
+  }
+}
+
+.header .navigation__item a {
+  color: #000 !important;
+}
+
 .hero--image {
   position: relative;
   // Matches the source photo's own ratio (2000x1066) so "cover" shows the
