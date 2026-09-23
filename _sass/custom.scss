@@ -1,34 +1,66 @@
 /* start custom scss snippet */
 
-// En-tête : nom + sous-titre + liens du menu dans la couleur de texte du header du skin actif
-// (utilise $header-text-color, pas une couleur figée, pour rester lisible en mode sombre aussi)
+// En-tête modernisé : police système (plus de serif), navigation en pastilles
+// arrondies au survol/actif plutôt qu'un simple soulignement. Tout est basé sur
+// $header-text-color (pas une couleur figée) pour rester lisible en mode sombre.
+$nav-font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+
+.header {
+  border-bottom: 1px solid $border-color-l;
+}
+
 .header__brand a {
   display: inline-flex;
   flex-direction: column;
   line-height: 1.2;
   color: $header-text-color !important;
-  font-family: Georgia, "Times New Roman", serif;
-  font-weight: 700;
+  font-family: $nav-font-stack;
+  font-weight: 800;
+  letter-spacing: -0.01em;
   text-decoration: none;
+  transition: opacity 0.15s ease;
 
   &:hover {
     color: $header-text-color !important;
     text-decoration: none;
-    opacity: 0.8;
+    opacity: 0.65;
   }
 
   &::after {
     content: "Ing\00E9nieur d\00E9veloppement junior";
-    margin-top: .15rem;
-    color: $header-text-color;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-    font-size: .7em;
-    font-weight: 400;
+    margin-top: .2rem;
+    color: $text-color-l;
+    font-family: $nav-font-stack;
+    font-size: .65em;
+    font-weight: 500;
+    letter-spacing: 0;
+  }
+}
+
+.navigation__item {
+  &::after {
+    display: none;
   }
 }
 
 .header .navigation__item a {
+  display: inline-block;
   color: $header-text-color !important;
+  font-family: $nav-font-stack;
+  font-weight: 600;
+  font-size: 0.92rem;
+  padding: 0.45rem 1rem;
+  border-radius: map-get($base, border-radius-lg);
+  transition: background-color 0.15s ease, color 0.15s ease;
+
+  &:hover {
+    background-color: rgba($header-text-color, 0.08);
+  }
+}
+
+.header .navigation__item--active a {
+  background-color: rgba($header-text-color, 0.1);
+  color: $main-color-1 !important;
 }
 
 // Collapsible mobile nav: hidden hamburger button on desktop, shown + toggles
@@ -49,6 +81,13 @@
   .header--nav-open .js-navigation {
     display: block;
   }
+}
+
+// The theme repeats the post excerpt as a subtitle on the cover photo AND as
+// the article's own first paragraph right below it - same text twice. Hide
+// the photo-header copy, the real one stays in the body.
+.overlay__excerpt {
+  display: none;
 }
 
 .hero--image {
