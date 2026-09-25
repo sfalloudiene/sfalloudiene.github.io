@@ -8,7 +8,9 @@
 
   function setIcon(theme) {
     if (!icon) { return; }
-    icon.className = theme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+    icon.classList.remove('icon-pop');
+    void icon.offsetWidth; // force le reflow pour pouvoir rejouer l'animation
+    icon.className = (theme === 'dark' ? 'fas fa-sun' : 'fas fa-moon') + ' icon-pop';
   }
 
   function applyTheme(theme) {

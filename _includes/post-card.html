@@ -1,6 +1,7 @@
 {%- assign _post = include.post -%}
 <a class="recent-post-card" href="{{ _post.url | relative_url }}">
-  <div class="recent-post-card__image"{% if _post.cover %}{%- include snippets/get-nav-url.html path=_post.cover -%} style="background-image: url('{{ __return }}');"{% endif %}>
+  <div class="recent-post-card__image">
+    <div class="recent-post-card__image-bg"{% if _post.cover %}{%- include snippets/get-nav-url.html path=_post.cover -%} style="background-image: url('{{ __return }}');"{% endif %}></div>
     <div class="recent-post-card__overlay">
       {%- if _post.tags -%}
         <div class="recent-post-card__tags">

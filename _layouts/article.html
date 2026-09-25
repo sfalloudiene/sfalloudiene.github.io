@@ -8,6 +8,8 @@ type: article
   source0=layout.sharing source1=page.sharing -%}
 {%- assign _sharing = __return -%}
 
+<div class="reading-progress d-print-none"><div class="reading-progress__bar"></div></div>
+
 <div class="layout--article">
   {%- include article/top/custom.html -%}
 
@@ -27,4 +29,5 @@ type: article
 <script>
   {%- include scripts/article.js -%}
   {%- include scripts/reactions.js -%}
+  {%- include scripts/reading-progress.js -%}
 </script>
