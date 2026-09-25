@@ -117,13 +117,6 @@ $nav-font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetic
   }
 }
 
-// The theme repeats the post excerpt as a subtitle on the cover photo AND as
-// the article's own first paragraph right below it - same text twice. Hide
-// the photo-header copy, the real one stays in the body.
-.overlay__excerpt {
-  display: none;
-}
-
 .hero--image {
   position: relative;
   // Matches the source photo's own ratio (2000x1066) so "cover" shows the

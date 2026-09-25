@@ -13,7 +13,12 @@ type: article
 <div class="layout--article">
   {%- include article/top/custom.html -%}
 
-  <div class="article__content" itemprop="articleBody">{{ content }}</div>
+  {%- if page.excerpt and page.excerpt != empty -%}
+    {%- assign _body_content = content | remove_first: page.excerpt -%}
+  {%- else -%}
+    {%- assign _body_content = content -%}
+  {%- endif -%}
+  <div class="article__content" itemprop="articleBody">{{ _body_content }}</div>
 
   {%- if _sharing -%}
     <section class="article__sharing d-print-none">{%- include sharing.html -%}</section>
