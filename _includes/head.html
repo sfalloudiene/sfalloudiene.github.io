@@ -14,17 +14,26 @@
 {%- assign _light_css = __return -%}
 {%- include snippets/prepend-baseurl.html path='/assets/css/dark.css' -%}
 {%- assign _dark_css = __return -%}
-<link rel="stylesheet" id="theme-css" href="{{ _light_css }}" data-light-href="{{ _light_css }}" data-dark-href="{{ _dark_css }}">
+<link rel="stylesheet" id="theme-css" href="{{ _dark_css }}" data-light-href="{{ _light_css }}" data-dark-href="{{ _dark_css }}">
 <script>
   (function () {
     var STORAGE_KEY = 'theme-skin';
     var stored = null;
     try { stored = localStorage.getItem(STORAGE_KEY); } catch (e) {}
     var theme = stored || 'dark';
-    if (theme === 'dark') {
-      var link = document.getElementById('theme-css');
-      link.setAttribute('href', link.getAttribute('data-dark-href'));
+    var link = document.getElementById('theme-css');
+    if (theme === 'light') {
+      link.setAttribute('href', link.getAttribute('data-light-href'));
     }
+    // Filet de securite : si le CSS ne charge pas (reseau flaky), on retente avec l'autre feuille
+    // plutot que de laisser la page sans style jusqu'au rafraichissement manuel.
+    link.addEventListener('error', function onError() {
+      link.removeEventListener('error', onError);
+      var fallback = theme === 'light' ? link.getAttribute('data-dark-href') : link.getAttribute('data-light-href');
+      if (link.getAttribute('href') !== fallback) {
+        link.setAttribute('href', fallback);
+      }
+    });
     document.documentElement.setAttribute('data-theme', theme);
   })();
 </script>
