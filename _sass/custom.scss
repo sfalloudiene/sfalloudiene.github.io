@@ -689,6 +689,11 @@ $nav-font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetic
   100% { transform: scale(1); }
 }
 
+// Articles similaires (pied d'article, voir article/footer/related-posts.html)
+.related-posts {
+  margin: map-get($spacers, 4) 0;
+}
+
 // Bouton "copier" sur les blocs de code (voir code-copy.js). Cache par
 // defaut, apparait au survol du bloc (ou au focus clavier).
 .code-copy-wrap {

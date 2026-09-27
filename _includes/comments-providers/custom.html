@@ -1,3 +1,28 @@
 <!-- start custom comments snippet -->
-
+<!-- Giscus (commentaires bases sur GitHub Discussions, repo sfalloudiene/sfalloudiene.github.io,
+     categorie "Announcements"). Le theme initial suit le mode clair/sombre du
+     site (data-theme sur <html>), et reste synchronise si l'utilisateur
+     bascule le theme apres coup (voir theme-toggle.js -> syncGiscusTheme). -->
+<script>
+(function () {
+  var theme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+  var script = document.createElement('script');
+  script.src = 'https://giscus.app/client.js';
+  script.setAttribute('data-repo', 'sfalloudiene/sfalloudiene.github.io');
+  script.setAttribute('data-repo-id', 'R_kgDOUmG3AA');
+  script.setAttribute('data-category', 'Announcements');
+  script.setAttribute('data-category-id', 'DIC_kwDOUmG3AM4DGLy2');
+  script.setAttribute('data-mapping', 'pathname');
+  script.setAttribute('data-strict', '0');
+  script.setAttribute('data-reactions-enabled', '1');
+  script.setAttribute('data-emit-metadata', '0');
+  script.setAttribute('data-input-position', 'top');
+  script.setAttribute('data-theme', theme);
+  script.setAttribute('data-lang', 'fr');
+  script.setAttribute('data-loading', 'lazy');
+  script.setAttribute('crossorigin', 'anonymous');
+  script.async = true;
+  document.currentScript.parentNode.appendChild(script);
+})();
+</script>
 <!-- end custom comments snippet -->

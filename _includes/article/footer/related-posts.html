@@ -1,0 +1,61 @@
+<!-- Articles partageant le plus de tags avec l'article courant (score
+     encode en cle triable lexicalement, faute de filtre "sort_by" en Liquid
+     pur sur GitHub Pages), complete par les plus recents si besoin. -->
+{%- assign _max_related = 3 -%}
+{%- assign _related_keys = "" | split: "|" -%}
+
+{%- if page.tags and page.tags != empty -%}
+  {%- for _post in site.posts -%}
+    {%- unless _post.url == page.url -%}
+      {%- assign _common = 0 -%}
+      {%- for _tag in page.tags -%}
+        {%- if _post.tags contains _tag -%}
+          {%- assign _common = _common | plus: 1 -%}
+        {%- endif -%}
+      {%- endfor -%}
+      {%- if _common > 0 -%}
+        {%- assign _score = _common | plus: 1000 -%}
+        {%- assign _key = _score | append: '::' | append: _post.url -%}
+        {%- assign _related_keys = _related_keys | push: _key -%}
+      {%- endif -%}
+    {%- endunless -%}
+  {%- endfor -%}
+  {%- assign _related_keys = _related_keys | sort | reverse -%}
+{%- endif -%}
+
+{%- assign _related_posts = "" | split: "|" -%}
+{%- for _key in _related_keys limit: _max_related -%}
+  {%- assign _parts = _key | split: '::' -%}
+  {%- assign _match = site.posts | where: 'url', _parts[1] | first -%}
+  {%- if _match -%}
+    {%- assign _related_posts = _related_posts | push: _match -%}
+  {%- endif -%}
+{%- endfor -%}
+
+{%- assign _related_count = _related_posts | size -%}
+{%- if _related_count < _max_related -%}
+  {%- for _post in site.posts -%}
+    {%- assign _already = false -%}
+    {%- for _r in _related_posts -%}
+      {%- if _r.url == _post.url -%}{%- assign _already = true -%}{%- endif -%}
+    {%- endfor -%}
+    {%- if _post.url != page.url and _already == false -%}
+      {%- assign _related_posts = _related_posts | push: _post -%}
+      {%- assign _related_count = _related_count | plus: 1 -%}
+    {%- endif -%}
+    {%- if _related_count >= _max_related -%}
+      {%- break -%}
+    {%- endif -%}
+  {%- endfor -%}
+{%- endif -%}
+
+{%- if _related_posts.size > 0 -%}
+<section class="related-posts">
+  <h2 class="timeline-section__heading">À lire aussi</h2>
+  <div class="recent-posts__grid">
+    {%- for _post in _related_posts limit: _max_related -%}
+      {%- include post-card.html post=_post -%}
+    {%- endfor -%}
+  </div>
+</section>
+{%- endif -%}
