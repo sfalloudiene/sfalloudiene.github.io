@@ -16,7 +16,8 @@
   function syncGiscusTheme(theme) {
     var iframe = document.querySelector('iframe.giscus-frame');
     if (!iframe) { return; }
-    iframe.contentWindow.postMessage({ giscus: { setConfig: { theme: theme } } }, 'https://giscus.app');
+    var themeUrl = 'https://fallou.dev/assets/css/giscus-' + (theme === 'dark' ? 'dark' : 'light') + '.css';
+    iframe.contentWindow.postMessage({ giscus: { setConfig: { theme: themeUrl } } }, 'https://giscus.app');
   }
 
   function applyTheme(theme) {

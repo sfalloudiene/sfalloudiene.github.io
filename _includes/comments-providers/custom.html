@@ -1,11 +1,14 @@
 <!-- start custom comments snippet -->
 <!-- Giscus (commentaires bases sur GitHub Discussions, repo sfalloudiene/sfalloudiene.github.io,
-     categorie "Announcements"). Le theme initial suit le mode clair/sombre du
-     site (data-theme sur <html>), et reste synchronise si l'utilisateur
-     bascule le theme apres coup (voir theme-toggle.js -> syncGiscusTheme). -->
+     categorie "Announcements"). Theme custom (assets/css/giscus-*.css) repris
+     des couleurs du skin du site plutot que le theme GitHub par defaut. Le
+     theme initial suit le mode clair/sombre du site (data-theme sur <html>),
+     et reste synchronise si l'utilisateur bascule le theme apres coup (voir
+     theme-toggle.js -> syncGiscusTheme). -->
 <script>
 (function () {
-  var theme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+  var isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+  var theme = 'https://fallou.dev/assets/css/giscus-' + (isDark ? 'dark' : 'light') + '.css';
   var script = document.createElement('script');
   script.src = 'https://giscus.app/client.js';
   script.setAttribute('data-repo', 'sfalloudiene/sfalloudiene.github.io');

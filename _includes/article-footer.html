@@ -29,6 +29,14 @@
 
   {%- include article/footer/custom.html -%}
 
+  {%- include snippets/assign.html
+    target = site.data.variables.default.page.comment
+    source0=layout.comment source1=page.comment -%}
+  {%- assign _comment = __return -%}
+  {%- if _comment != false -%}
+    <section class="page__comments d-print-none">{%- include comments.html -%}</section>
+  {%- endif -%}
+
   {%- include article/footer/related-posts.html -%}
 
   {%- if _show_author_profile -%}
