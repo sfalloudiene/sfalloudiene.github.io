@@ -222,6 +222,10 @@ $nav-font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetic
   color: $text-color-l;
 }
 
+.reactions__star.pop {
+  animation: star-pop 0.3s ease;
+}
+
 .reactions__like {
   display: inline-flex;
   align-items: center;
@@ -236,6 +240,10 @@ $nav-font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetic
   i {
     color: #e0245e;
   }
+}
+
+.reactions__like i.pop {
+  animation: like-pop 0.4s ease;
 }
 
 // Portfolio homepage
@@ -466,6 +474,12 @@ $nav-font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetic
   background: rgba(255, 255, 255, 0.18);
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
+  transition: transform 0.15s ease, background-color 0.15s ease;
+
+  &:hover {
+    transform: scale(1.1);
+    background: rgba(255, 255, 255, 0.32);
+  }
 }
 
 .recent-post-card__title {
@@ -658,6 +672,23 @@ $nav-font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetic
   animation: theme-icon-pop 0.35s ease;
 }
 
+// Coeur "like" : petit rebond a chaque like, plutot qu'un changement de
+// couleur instantane (voir reactions.js).
+@keyframes like-pop {
+  0% { transform: scale(1); }
+  35% { transform: scale(1.5); }
+  60% { transform: scale(0.9); }
+  100% { transform: scale(1); }
+}
+
+// Etoiles : meme principe, rebond en cascade quand on choisit une note
+// (le delai par etoile est pose en JS via animationDelay).
+@keyframes star-pop {
+  0% { transform: scale(1); }
+  40% { transform: scale(1.4); }
+  100% { transform: scale(1); }
+}
+
 // Barre de progression de lecture (articles uniquement)
 .reading-progress {
   position: fixed;
@@ -693,6 +724,15 @@ $nav-font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetic
   }
 
   .reading-progress__bar {
+    transition: none !important;
+  }
+
+  .reactions__like i.pop,
+  .reactions__star.pop {
+    animation: none !important;
+  }
+
+  .recent-post-card__tag {
     transition: none !important;
   }
 }

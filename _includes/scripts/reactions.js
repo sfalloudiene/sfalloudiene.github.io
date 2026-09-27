@@ -23,10 +23,17 @@
   var likeCountEl = el.querySelector('.js-reactions-like-count');
   var likes = readStore(LIKES_KEY);
 
-  function renderLike() {
+  var likeIcon = likeBtn.querySelector('i');
+
+  function renderLike(justToggled) {
     var entry = likes[id] || { liked: false, count: 0 };
     likeCountEl.textContent = entry.count;
     likeBtn.classList.toggle('reactions__like--active', !!entry.liked);
+    if (justToggled && entry.liked && likeIcon) {
+      likeIcon.classList.remove('pop');
+      void likeIcon.offsetWidth; // force le reflow pour pouvoir rejouer l'animation
+      likeIcon.classList.add('pop');
+    }
   }
 
   likeBtn.addEventListener('click', function () {
@@ -36,7 +43,7 @@
     if (entry.count < 0) { entry.count = 0; }
     likes[id] = entry;
     writeStore(LIKES_KEY, likes);
-    renderLike();
+    renderLike(true);
   });
 
   renderLike();
@@ -46,11 +53,18 @@
   var label = el.querySelector('.js-reactions-stars-label');
   var ratings = readStore(RATINGS_KEY);
 
-  function renderStars() {
+  function renderStars(justSet) {
     var value = ratings[id] || 0;
-    stars.forEach(function (star) {
+    stars.forEach(function (star, index) {
       var starValue = parseInt(star.getAttribute('data-value'), 10);
-      star.classList.toggle('reactions__star--active', starValue <= value);
+      var active = starValue <= value;
+      star.classList.toggle('reactions__star--active', active);
+      if (justSet && active) {
+        star.classList.remove('pop');
+        void star.offsetWidth; // force le reflow pour pouvoir rejouer l'animation
+        star.style.animationDelay = (index * 40) + 'ms';
+        star.classList.add('pop');
+      }
     });
     label.textContent = value ? 'Ta note : ' + value + '/5' : 'Note cet article';
   }
@@ -60,7 +74,7 @@
       var value = parseInt(star.getAttribute('data-value'), 10);
       ratings[id] = ratings[id] === value ? 0 : value;
       writeStore(RATINGS_KEY, ratings);
-      renderStars();
+      renderStars(true);
     });
   });
 
