@@ -138,7 +138,7 @@ Ce site rassemble mon parcours, mes projets, et mes notes techniques.
 
 <div class="timeline__item">
 <div class="timeline__date">Sept. 2024 — Sept. 2026</div>
-<h3 class="timeline__title">Développeur Java</h3>
+<h3 class="timeline__title">Développeur Java en alternance</h3>
 <div class="timeline__subtitle">Netceler · Alternance · Valence, France</div>
 </div>
 
