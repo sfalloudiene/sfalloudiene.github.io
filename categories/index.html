@@ -1,0 +1,43 @@
+---
+layout: page
+title: Catégories
+titles:
+  # @start locale config
+  en      : &EN       Categories
+  en-GB   : *EN
+  en-US   : *EN
+  en-CA   : *EN
+  en-AU   : *EN
+  fr      : &FR       Catégories
+  fr-BE   : *FR
+  fr-CA   : *FR
+  fr-CH   : *FR
+  fr-FR   : *FR
+  fr-LU   : *FR
+  # @end locale config
+key: page-categories
+comment: false
+---
+
+{%- for _cat in site.data.categories -%}
+  {%- assign _slug = _cat[0] -%}
+  {%- assign _meta = _cat[1] -%}
+  {%- assign _cat_posts = site.posts | where: 'blog_category', _slug -%}
+  {%- if _cat_posts.size > 0 -%}
+    {%- include snippets/get-nav-url.html path=_meta.cover -%}
+    {%- assign _cover_url = __return -%}
+    <section class="category-section">
+      <div class="category-section__header" style="background-image: url('{{ _cover_url }}');">
+        <div class="category-section__overlay">
+          <h2 class="category-section__title">{{ _meta.name }}</h2>
+          <span class="category-section__count">{{ _cat_posts.size }} article{% if _cat_posts.size > 1 %}s{% endif %}</span>
+        </div>
+      </div>
+      <div class="recent-posts__grid">
+        {%- for _post in _cat_posts -%}
+          {%- include post-card.html post=_post -%}
+        {%- endfor -%}
+      </div>
+    </section>
+  {%- endif -%}
+{%- endfor -%}

@@ -697,6 +697,54 @@ $nav-font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetic
   100% { transform: scale(1); }
 }
 
+// Page /categories/ : un bandeau image + nom + nombre d'articles par
+// categorie, suivi de la grille des articles de cette categorie (meme carte
+// que .recent-posts__grid ailleurs sur le site).
+.category-section {
+  margin: 2.5rem 0;
+
+  &:first-of-type {
+    margin-top: 1.5rem;
+  }
+}
+
+.category-section__header {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  min-height: 160px;
+  border-radius: map-get($base, border-radius-lg);
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+}
+
+.category-section__overlay {
+  width: 100%;
+  padding: 1.25rem 1.5rem;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.75) 0%, rgba(0, 0, 0, 0.2) 70%, rgba(0, 0, 0, 0) 100%);
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.category-section__title {
+  margin: 0;
+  color: #fff !important;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
+}
+
+.category-section__count {
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 0.85rem;
+}
+
+.category-section > .recent-posts__grid {
+  margin-top: 1rem;
+}
+
 // Articles similaires (pied d'article, voir article/footer/related-posts.html)
 .related-posts {
   margin: map-get($spacers, 4) 0;
