@@ -68,7 +68,7 @@ Requires a `BUTTONDOWN_API_KEY` repo secret (Settings → Secrets and variables 
 ## Project Architecture
 
 ### Skin System
-6 built-in skins (`default`, `dark`, `forest`, `ocean`, `chocolate`, `orange`) + 5 highlight themes. A skin is a SCSS file at `_sass/skins/_<name>.scss` that defines CSS custom properties (colors, fonts, borders). Selected via `text_skin` in `_config.yml`. The main entry point `assets/css/main.scss` dynamically `@import`s the active skin.
+The site is **dark-only** — `_includes/head.html` loads a single stylesheet, `assets/css/dark.css` (built from `assets/css/dark.scss`, which hardcodes `@import "skins/dark"`). There used to be a light/dark toggle (a second `main.scss` entry point building the `default` skin, a button in the header, `theme-toggle.js`, `data-theme` attribute switching) — all of that was removed; `_sass/skins/_default.scss` and the other unused skin files (`forest`, `ocean`, `chocolate`, `orange`) are still vendored from the theme but nothing imports them. `text_skin` in `_config.yml` is consequently unused. A skin is a SCSS file at `_sass/skins/_<name>.scss` that defines CSS custom properties (colors, fonts, borders); if light mode ever comes back, `_sass/skins/_default.scss` already has the full light palette ready to go.
 
 ### Layout Inheritance
 Layouts in `_layouts/` form a chain: `none` ← `base` ← `page` ← `article` / `home` / `landing` / `articles` / `archive` / `404`. `base.html` is the root — it sets up the HTML shell, analytics, head, and core JS utilities. Page-level layouts extend it and add content wrappers.

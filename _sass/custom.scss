@@ -22,8 +22,8 @@ $nav-font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetic
 }
 
 // The logo is a solid black mark on a transparent background - invert it to
-// white in dark mode so it stays visible against the dark header background.
-[data-theme="dark"] .header__logo {
+// white so it stays visible against the dark header background.
+.header__logo {
   filter: invert(1);
 }
 
@@ -727,28 +727,6 @@ $nav-font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetic
   transform: translateY(0);
 }
 
-// Bascule d'icone du theme (soleil/lune) : petite rotation + fondu a chaque
-// changement plutot qu'un remplacement instantane. Redeclenchee en JS via
-// un reflow (voir theme-toggle.js).
-@keyframes theme-icon-pop {
-  from {
-    opacity: 0;
-    transform: rotate(-90deg) scale(0.5);
-  }
-  to {
-    opacity: 1;
-    transform: rotate(0) scale(1);
-  }
-}
-
-.js-theme-toggle i {
-  display: inline-block;
-}
-
-.js-theme-toggle i.icon-pop {
-  animation: theme-icon-pop 0.35s ease;
-}
-
 // Coeur "like" : petit rebond a chaque like, plutot qu'un changement de
 // couleur instantane (voir reactions.js).
 @keyframes like-pop {
@@ -848,10 +826,6 @@ $nav-font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetic
 
   .recent-post-card__image-bg {
     transition: none !important;
-  }
-
-  .js-theme-toggle i.icon-pop {
-    animation: none !important;
   }
 
   .reading-progress__bar {

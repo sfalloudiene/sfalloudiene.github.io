@@ -1,14 +1,10 @@
 <!-- start custom comments snippet -->
 <!-- Giscus (commentaires bases sur GitHub Discussions, repo sfalloudiene/sfalloudiene.github.io,
-     categorie "Announcements"). Theme custom (assets/css/giscus-*.css) repris
-     des couleurs du skin du site plutot que le theme GitHub par defaut. Le
-     theme initial suit le mode clair/sombre du site (data-theme sur <html>),
-     et reste synchronise si l'utilisateur bascule le theme apres coup (voir
-     theme-toggle.js -> syncGiscusTheme). -->
+     categorie "Announcements"). Theme custom (assets/css/giscus-dark.css) repris
+     des couleurs du skin dark du site plutot que le theme GitHub par defaut.
+     Le site est en dark uniquement (pas de bascule), donc le theme est fixe. -->
 <script>
 (function () {
-  var isDark = document.documentElement.getAttribute('data-theme') === 'dark';
-  var theme = 'https://fallou.dev/assets/css/giscus-' + (isDark ? 'dark' : 'light') + '.css';
   var script = document.createElement('script');
   script.src = 'https://giscus.app/client.js';
   script.setAttribute('data-repo', 'sfalloudiene/sfalloudiene.github.io');
@@ -20,7 +16,7 @@
   script.setAttribute('data-reactions-enabled', '1');
   script.setAttribute('data-emit-metadata', '0');
   script.setAttribute('data-input-position', 'top');
-  script.setAttribute('data-theme', theme);
+  script.setAttribute('data-theme', 'https://fallou.dev/assets/css/giscus-dark.css');
   script.setAttribute('data-lang', 'fr');
   script.setAttribute('data-loading', 'lazy');
   script.setAttribute('crossorigin', 'anonymous');
