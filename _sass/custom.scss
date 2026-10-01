@@ -482,6 +482,10 @@ $nav-font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetic
   grid-template-columns: repeat(2, 1fr);
   gap: 1.5rem;
   margin: 2rem 0;
+
+  @include media-breakpoint-up(lg) {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 
 .recent-post-card {
@@ -565,14 +569,6 @@ $nav-font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetic
 
 .recent-posts__more {
   text-align: center;
-}
-
-// Grille de la page /blog/ : plus de colonnes que "Derniers articles" sur
-// l'accueil, pour des cartes plus petites vu le nombre d'articles a afficher.
-@include media-breakpoint-up(lg) {
-  .blog-posts__grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
 }
 
 @include media-breakpoint-down(md) {
