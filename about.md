@@ -207,31 +207,31 @@ Ce site rassemble mon parcours, mes projets, et mes notes techniques.
 
 <section class="timeline-section">
 <h2 class="timeline-section__heading">Certifications</h2>
-<div class="certifications">
+<div class="projects">
 
-<div class="certifications__item">
-<i class="fas fa-certificate"></i>
-<div>
-<div class="certifications__title">Spring Boot for Beginners</div>
-<div class="certifications__issuer">Amigoscode</div>
+<a class="project-card" href="https://app.amigoscode.com/courses/267273/certificate" target="_blank" rel="noopener">
+<div class="project-card__header">
+<h3 class="project-card__title">Spring Boot for Beginners</h3>
 </div>
-</div>
+<p class="project-card__desc">Amigoscode</p>
+<span class="project-card__link"><i class="fas fa-certificate"></i> Voir le certificat</span>
+</a>
 
-<div class="certifications__item">
-<i class="fas fa-certificate"></i>
-<div>
-<a class="certifications__title" href="https://www.udemy.com/certificate/UC-a060d4e3-0bf0-4918-9fc7-8e032f61fd2f/" target="_blank" rel="noopener">Jenkins: Beginner To Pro, Learn CI/CD Pipelines &amp; Automation</a>
-<div class="certifications__issuer">Udemy</div>
+<a class="project-card" href="https://www.udemy.com/certificate/UC-a060d4e3-0bf0-4918-9fc7-8e032f61fd2f/" target="_blank" rel="noopener">
+<div class="project-card__header">
+<h3 class="project-card__title">Jenkins: Beginner To Pro, Learn CI/CD Pipelines &amp; Automation</h3>
 </div>
-</div>
+<p class="project-card__desc">Udemy</p>
+<span class="project-card__link"><i class="fas fa-certificate"></i> Voir le certificat</span>
+</a>
 
-<div class="certifications__item">
-<i class="fas fa-certificate"></i>
-<div>
-<a class="certifications__title" href="https://www.udemy.com/certificate/UC-b93f9779-f0c4-4c84-a0d6-7296bb7ba842/" target="_blank" rel="noopener">Crash Course: Build a Full-Stack Web App in a Weekend!</a>
-<div class="certifications__issuer">Udemy</div>
+<a class="project-card" href="https://www.udemy.com/certificate/UC-b93f9779-f0c4-4c84-a0d6-7296bb7ba842/" target="_blank" rel="noopener">
+<div class="project-card__header">
+<h3 class="project-card__title">Crash Course: Build a Full-Stack Web App in a Weekend!</h3>
 </div>
-</div>
+<p class="project-card__desc">Udemy</p>
+<span class="project-card__link"><i class="fas fa-certificate"></i> Voir le certificat</span>
+</a>
 
 </div>
 </section>
