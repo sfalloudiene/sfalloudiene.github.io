@@ -228,7 +228,7 @@ Ce site rassemble mon parcours, mes projets, et mes notes techniques.
 <div class="certifications__item">
 <i class="fas fa-certificate"></i>
 <div>
-<div class="certifications__title">Crash Course: Build a Full-Stack Web App in a Weekend!</div>
+<a class="certifications__title" href="https://www.udemy.com/certificate/UC-b93f9779-f0c4-4c84-a0d6-7296bb7ba842/" target="_blank" rel="noopener">Crash Course: Build a Full-Stack Web App in a Weekend!</a>
 <div class="certifications__issuer">Udemy</div>
 </div>
 </div>

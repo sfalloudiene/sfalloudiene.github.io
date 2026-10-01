@@ -467,6 +467,15 @@ $nav-font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetic
   font-weight: map-get($base, font-weight-bold);
 }
 
+a.certifications__title {
+  color: inherit !important;
+  text-decoration: none !important;
+
+  &:hover {
+    color: $main-color-1 !important;
+  }
+}
+
 .certifications__issuer {
   color: $text-color-l;
   font-size: 0.9rem;
