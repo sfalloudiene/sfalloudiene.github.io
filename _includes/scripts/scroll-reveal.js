@@ -1,5 +1,5 @@
 (function () {
-  var targets = document.querySelectorAll('.recent-post-card, .skill-badge, .timeline__item, .certifications__item');
+  var targets = document.querySelectorAll('.recent-post-card, .skill-badge, .timeline__item, .certifications__item, .project-card');
   if (!targets.length) { return; }
 
   var reducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;

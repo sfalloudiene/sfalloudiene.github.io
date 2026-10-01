@@ -172,6 +172,40 @@ Ce site rassemble mon parcours, mes projets, et mes notes techniques.
 </section>
 
 <section class="timeline-section">
+<h2 class="timeline-section__heading">Projets</h2>
+<div class="projects">
+
+<a class="project-card" href="https://github.com/sfalloudiene/EsigTalk_Website" target="_blank" rel="noopener">
+<div class="project-card__header">
+<h3 class="project-card__title">EsigTalk</h3>
+<span class="project-card__lang"><span class="project-card__lang-dot" style="background-color: #4F5D95;"></span>PHP</span>
+</div>
+<p class="project-card__desc">Plateforme web facilitant la communication entre tuteurs (école/entreprise) et apprentis : messagerie interne, gestion des équipes, upload de fichiers, tableaux de bord personnalisés.</p>
+<span class="project-card__link"><i class="fab fa-github"></i> Voir sur GitHub</span>
+</a>
+
+<a class="project-card" href="https://github.com/sfalloudiene/AppBourse" target="_blank" rel="noopener">
+<div class="project-card__header">
+<h3 class="project-card__title">ESIG'Trade Terminal</h3>
+<span class="project-card__lang"><span class="project-card__lang-dot" style="background-color: #3572A5;"></span>Python</span>
+</div>
+<p class="project-card__desc">Terminal boursier en temps réel (Streamlit) pour suivre le cours d'actions du CAC 40, avec graphiques interactifs, actualités et mode sombre.</p>
+<span class="project-card__link"><i class="fab fa-github"></i> Voir sur GitHub</span>
+</a>
+
+<a class="project-card" href="https://github.com/sfalloudiene/Today-I-learned-app" target="_blank" rel="noopener">
+<div class="project-card__header">
+<h3 class="project-card__title">Today I Learned</h3>
+<span class="project-card__lang"><span class="project-card__lang-dot" style="background-color: #f1e05a;"></span>JavaScript</span>
+</div>
+<p class="project-card__desc">Application full-stack pour créer et partager des faits, avec source, catégorie et système de vote pour chacun.</p>
+<span class="project-card__link"><i class="fab fa-github"></i> Voir sur GitHub</span>
+</a>
+
+</div>
+</section>
+
+<section class="timeline-section">
 <h2 class="timeline-section__heading">Certifications</h2>
 <div class="certifications">
 
