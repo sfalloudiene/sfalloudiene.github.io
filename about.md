@@ -220,7 +220,7 @@ Ce site rassemble mon parcours, mes projets, et mes notes techniques.
 <div class="certifications__item">
 <i class="fas fa-certificate"></i>
 <div>
-<div class="certifications__title">Jenkins: Beginner To Pro, Learn CI/CD Pipelines &amp; Automation</div>
+<a class="certifications__title" href="https://www.udemy.com/certificate/UC-a060d4e3-0bf0-4918-9fc7-8e032f61fd2f/" target="_blank" rel="noopener">Jenkins: Beginner To Pro, Learn CI/CD Pipelines &amp; Automation</a>
 <div class="certifications__issuer">Udemy</div>
 </div>
 </div>
