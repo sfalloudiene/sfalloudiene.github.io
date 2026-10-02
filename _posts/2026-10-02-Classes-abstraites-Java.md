@@ -11,7 +11,7 @@ article_header:
     src: https://images.unsplash.com/photo-1758061317613-801801f1f4e6?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D
 ---
 
-Hello hello, dans cet article, je vais essayer d'expliquer Les **classes abstraites** en Java. Ces derniers sont des classes qui ne peuvent pas être instanciées directement, mais qui servent de **modèle de base** (ou "plan") pour d'autres classes (appelées sous-classes ou classes concrètes). Elles sont déclarées avec le mot-clé `abstract`.
+Les classes abstraites en Java sont des classes qui ne peuvent pas être instanciées directement, mais qui servent de modèle de base pour d'autres classes (appelées sous-classes ou classes concrètes). Elles sont déclarées avec le mot-clé abstract.
 
 <!--more-->
 
@@ -90,8 +90,6 @@ class Chat extends Animal {
     }
 }
 ```
-
----
 
 ## Utilisation
 
