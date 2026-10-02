@@ -31,6 +31,23 @@ comment: false
 Quelques projets perso sur lesquels j'ai travaillé, et les certifications que j'ai passées.
 
 <section class="timeline-section">
+<h2 class="timeline-section__heading">Projet en cours</h2>
+<div class="projects">
+
+<a class="project-card" href="https://github.com/sfalloudiene/conso-linky" target="_blank" rel="noopener">
+<div class="project-card__header">
+<h3 class="project-card__title">Conso Linky</h3>
+<span class="project-card__lang"><span class="project-card__lang-dot" style="background-color: #b07219;"></span>Java</span>
+</div>
+<span class="project-card__badge">En cours</span>
+<p class="project-card__desc">Application de supervision de la consommation électrique domestique (Spring Boot, architecture multi-modules).</p>
+<span class="project-card__link"><i class="fab fa-github"></i> Voir sur GitHub</span>
+</a>
+
+</div>
+</section>
+
+<section class="timeline-section">
 <h2 class="timeline-section__heading">Projets</h2>
 <div class="projects">
 

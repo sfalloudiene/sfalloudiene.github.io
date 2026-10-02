@@ -24,7 +24,7 @@ title: Accueil
 <section class="recent-posts">
   <h2 class="timeline-section__heading">Derniers articles</h2>
   <div class="recent-posts__grid">
-    {%- for post in site.posts limit: 3 -%}
+    {%- for post in site.posts limit: 4 -%}
       {%- include post-card.html post=post -%}
     {%- endfor -%}
   </div>
