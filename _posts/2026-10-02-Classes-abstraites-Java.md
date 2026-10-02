@@ -25,8 +25,6 @@ Les classes abstraites en Java sont des classes qui ne peuvent pas être instanc
     - Des **variables d'instance** et **statiques**.
     - Des **constructeurs** (qui sont appelés lors de l'instanciation des sous-classes).
 
----
-
 ## Exemple de Classe Abstraite
 
 Imaginons que nous voulons modéliser différents types d'animaux. Le concept d'un "Animal" générique est trop vague pour être instancié directement.
