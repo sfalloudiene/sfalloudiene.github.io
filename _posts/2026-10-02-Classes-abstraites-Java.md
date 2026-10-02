@@ -52,8 +52,6 @@ abstract class Animal {
 }
 ```
 
----
-
 ## Exemples de Sous-Classes Concrètes
 
 Les sous-classes héritent de `Animal` et doivent fournir l'implémentation de la méthode abstraite `emettreSon()`.
