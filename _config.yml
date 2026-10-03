@@ -105,7 +105,7 @@ chart: # false (default), true
 
 ## => Paginate
 ##############################
-paginate: 8
+paginate: 9
 paginate_path: /blog/page:num # must stay under /blog/ - jekyll-paginate only paginates an index.html whose directory matches this path's hierarchy
 
 
