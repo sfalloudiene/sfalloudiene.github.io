@@ -1,7 +1,7 @@
 <!-- Articles partageant le plus de tags avec l'article courant (score
      encode en cle triable lexicalement, faute de filtre "sort_by" en Liquid
      pur sur GitHub Pages), complete par les plus recents si besoin. -->
-{%- assign _max_related = 3 -%}
+{%- assign _max_related = 4 -%}
 {%- assign _related_keys = "" | split: "|" -%}
 
 {%- if page.tags and page.tags != empty -%}

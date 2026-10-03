@@ -1,5 +1,14 @@
 /* start custom scss snippet */
 
+// Images collees depuis GitHub (copier-coller d'une capture d'ecran dans un
+// commentaire/PR) arrivent avec des attributs width/height fixes en pixels.
+// Le theme ne plafonne que la largeur (img { max-width: 100% }), donc sur un
+// ecran etroit l'image est retrecie mais garde sa hauteur HTML d'origine =>
+// rendu ecrase/deforme. height: auto laisse le ratio suivre la largeur.
+.article__content img:not(.emoji) {
+  height: auto;
+}
+
 // En-tête modernisé : police système (plus de serif), navigation en pastilles
 // arrondies au survol/actif plutôt qu'un simple soulignement. Tout est basé sur
 // $header-text-color (pas une couleur figée) pour rester lisible en mode sombre.
@@ -461,10 +470,6 @@ $nav-font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetic
   grid-template-columns: repeat(2, 1fr);
   gap: 1.5rem;
   margin: 2rem 0;
-
-  @include media-breakpoint-up(lg) {
-    grid-template-columns: repeat(3, 1fr);
-  }
 }
 
 .recent-post-card {
