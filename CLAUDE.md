@@ -26,7 +26,7 @@ $env:Path = [System.Environment]::GetEnvironmentVariable("Path","Machine") + ";"
 
 ## Writing posts
 
-New post: `_posts/YYYY-MM-DD-title.md` with front matter (`layout: article`, `title`, etc.) — see existing posts or theme docs for available front-matter options (TOC, license, sharing, comments are all per-post toggleable, defaults set in `_config.yml`).
+New post: `_posts/YYYY-MM-DD-title.md` with front matter (`layout: article`, `title`, etc.) — see existing posts or theme docs for available front-matter options (TOC, license, sharing, comments are all per-post toggleable, defaults set in `_config.yml`). `newsletter: false` publishes the post without emailing subscribers (see Newsletter section below).
 
 **Full-width cover image** (like mincong.io): add to a post's front matter to get a full-bleed photo header with the title/tags/date overlaid on it —
 ```yaml
@@ -64,6 +64,8 @@ The subscribe form on posts and `/blog/` (`.newsletter-subscribe` in `_includes/
 Buttondown's built-in "RSS-to-email" auto-send is a paid feature (Basic plan, $9/mo), so instead `.github/workflows/newsletter.yml` replicates it for free: on every push to `main` that adds a file under `_posts/`, it diffs the push range, and for each newly-added post calls the Buttondown API to email subscribers with the title and a link to the post. Sending is two calls (per Buttondown's documented email state machine, `docs.buttondown.com/api-reference/emails`): `POST /v1/emails` creates a draft (the API doesn't accept `status: about_to_send` at creation time), then `PATCH /v1/emails/{id}` with `{"status": "about_to_send"}` moves it into the state that Buttondown sends automatically.
 
 Requires a `BUTTONDOWN_API_KEY` repo secret (Settings → Secrets and variables → Actions), generated from the Buttondown dashboard (Settings → API). Without it, the workflow no-ops with a warning instead of failing the build.
+
+**Publishing a post without emailing subscribers**: add `newsletter: false` to its front matter. The post still appears on the site as normal (blog, homepage, RSS, etc.) — only the newsletter workflow skips it.
 
 ## Project Architecture
 

@@ -45,7 +45,17 @@ jobs:
           echo "$NEW_POSTS" | while IFS= read -r POST; do
             [ -z "$POST" ] && continue
 
-            TITLE=$(awk -F': ' '/^title:/ {print $2; exit}' "$POST" | sed "s/^['\"]//; s/['\"]$//")
+            # Front matter only (between the two leading "---" lines), so a
+            # "newsletter:" mention in the article body itself doesn't count.
+            FRONT_MATTER=$(awk '/^---$/{c++; next} c==1' "$POST")
+            TITLE=$(echo "$FRONT_MATTER" | awk -F': ' '/^title:/ {print $2; exit}' | sed "s/^['\"]//; s/['\"]$//")
+
+            NEWSLETTER_FLAG=$(echo "$FRONT_MATTER" | awk -F': ' '/^newsletter:/ {print $2; exit}' | tr -d " '\"")
+            if [ "$NEWSLETTER_FLAG" = "false" ]; then
+              echo "Skipping newsletter for '$TITLE' (newsletter: false in front matter)."
+              continue
+            fi
+
             SLUG=$(basename "$POST" .md)
             DATE_PART=$(echo "$SLUG" | grep -oE '^[0-9]{4}-[0-9]{2}-[0-9]{2}')
             YEAR=$(echo "$DATE_PART" | cut -d- -f1)
