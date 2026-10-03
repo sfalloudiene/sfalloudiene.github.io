@@ -480,6 +480,18 @@ $nav-font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetic
   }
 }
 
+// "Derniers articles" (accueil) et "A lire aussi" montrent 4 posts pour un
+// 2x2 propre sur phone/tablette (2 colonnes) ; sur desktop (3 colonnes) un
+// 4e orphelin laisserait un trou sur la 2e ligne, donc on le masque la.
+.recent-posts .recent-posts__grid,
+.related-posts .recent-posts__grid {
+  @include media-breakpoint-up(lg) {
+    > :nth-child(4) {
+      display: none;
+    }
+  }
+}
+
 .recent-post-card {
   display: block;
   border-radius: map-get($base, border-radius-lg);
