@@ -2,14 +2,14 @@
 title: Java 8 VS Java 25
 tags: Java
 newsletter: false
-cover: https://images.unsplash.com/photo-1765040809316-5e263c4216c5?q=80&w=842&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D
-image: https://images.unsplash.com/photo-1765040809316-5e263c4216c5?q=80&w=842&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D
+cover: https://images.unsplash.com/photo-1627025020084-9169bacdebe2?q=80&w=876&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D
+image: https://images.unsplash.com/photo-1627025020084-9169bacdebe2?q=80&w=876&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D
 article_header:
   type: overlay
   theme: dark
   background_color: '#123'
   background_image:
-    src: https://images.unsplash.com/photo-1765040809316-5e263c4216c5?q=80&w=842&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D
+    src: https://images.unsplash.com/photo-1627025020084-9169bacdebe2?q=80&w=876&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D
 ---
 
 Passer de **Java 8** (sorti en 2014) à **Java 25** (sorti en septembre 2025) représente un saut technologique immense. Java a abandonné son rythme de sortie lent pour des versions tous les six mois, transformant radicalement le langage, la syntaxe et les performances de la JVM.
