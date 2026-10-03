@@ -262,8 +262,6 @@ Cette ligne crée un nouvel **`EntityManager`** (`em`) à partir de l'`EntityMan
 
 - L'utilisation du `try-with-resources` (`try (...)`) garantit que l'`EntityManager` sera automatiquement fermé (`em.close()`) après l'exécution du bloc, qu'il y ait succès ou échec. Ceci est crucial pour libérer les ressources et éviter les fuites de mémoire.
 
----
-
 ### 2. Démarrage de la Transaction
 
 `em.getTransaction().begin();`
@@ -283,8 +281,6 @@ C'est le bloc de code qui exécute l'action principale et garantit son achèveme
 
 - **`em.persist(v)`** : C'est l'instruction JPA qui ajoute l'objet `Voiture v` au contexte de persistance et prépare son insertion dans la base de données.
 - **`em.getTransaction().commit()`** : Si `persist()` réussit, cette ligne **valide** la transaction. C'est l'étape qui envoie réellement la commande `INSERT INTO ...` à la base de données et rend les changements permanents.
-
----
 
 ### 4. Gestion des Erreurs et Annulation (Rollback)
 
