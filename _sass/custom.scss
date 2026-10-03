@@ -470,6 +470,14 @@ $nav-font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetic
   grid-template-columns: repeat(2, 1fr);
   gap: 1.5rem;
   margin: 2rem 0;
+
+  // Desktop only: phone/tablet stay at 2 columns, but on a wide screen 2
+  // columns makes each card (square image included) huge. 3 columns keeps
+  // the cards a reasonable size there.
+  @include media-breakpoint-up(lg) {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
+  }
 }
 
 .recent-post-card {
