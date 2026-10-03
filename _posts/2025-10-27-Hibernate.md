@@ -163,9 +163,9 @@ En termes simples, c'est l'**usine principale** qui prépare l'environnement de 
 
 ## Rôle de l'`EntityManagerFactory`
 
-L'`EntityManagerFactory` est une ressource coûteuse à créer. Elle est responsable de :
+L'EntityManagerFactory est une ressource coûteuse à créer. Elle est responsable de :
 
-- **Charger la configuration JPA** (à partir du fichier `persistence.xml`).
+- **Charger la configuration JPA** (à partir du fichier persistence.xml).
 - **Initialiser le fournisseur de persistance** (Hibernate).
 - **Créer le pool de connexions** à la base de données.
 
@@ -185,15 +185,13 @@ static {
 
 ### 1. Le Rôle du Bloc Statique
 
-Le mot-clé `static` indique que ce bloc de code sera exécuté **une seule et unique fois** par la machine virtuelle Java (JVM) au moment où la classe `VoitureDAO` est chargée en mémoire.
+Le mot-clé static indique que ce bloc de code sera exécuté une seule et unique fois par la machine virtuelle Java (JVM) au moment où la classe VoitureDAO est chargée en mémoire.
 
-- **Objectif :** Initialiser la variable statique `emf` (l'`EntityManagerFactory`). L'EMF est une ressource très coûteuse à créer, il est donc crucial de ne le faire qu'une seule fois au démarrage de l'application, et non à chaque appel de méthode du DAO.
+- **Objectif :** Initialiser la variable statique emf (l'EntityManagerFactory). L'EMF est une ressource très coûteuse à créer, il est donc crucial de ne le faire qu'une seule fois au démarrage de l'application, et non à chaque appel de méthode du DAO.
 
-### 2. L'Initialisation de l'`EntityManagerFactory`
+### 2. L'Initialisation de l'EntityManagerFactory
 
 La ligne clé est :
-
-Java
 
 `emf = Persistence.createEntityManagerFactory("monPersistenceUnit");`
 
@@ -225,7 +223,7 @@ Java
 
 ### 3. Gestion des Erreurs (Robustesse)
 
-Le bloc est enveloppé dans une structure `try-catch` pour gérer tout problème survenant pendant la phase d'initialisation :
+Le bloc est enveloppé dans une structure `try-catch` pour gérer tout problème survenant pendant la phase d'initialisation:
 
 - **`catch (Throwable ex)`** : Si Hibernate ne trouve pas le pilote JDBC (comme vous l'avez vu avec `com.mysql.cj.jdbc.Driver`), ne parvient pas à lire le `persistence.xml`, ou rencontre une autre erreur grave, l'exécution passe au bloc `catch`.
 - **`throw new ExceptionInInitializerError(ex)`** : Ceci est le mécanisme standard en Java pour signaler qu'une erreur irrécupérable s'est produite lors de la préparation statique de la classe. Il arrête le chargement de la classe et empêche l'application de continuer à s'exécuter dans un état non fonctionnel.
@@ -267,8 +265,6 @@ Cette ligne crée un nouvel **`EntityManager`** (`em`) à partir de l'`EntityMan
 `em.getTransaction().begin();`
 
 La persistance modifie la base de données, elle doit donc être gérée par une **transaction**. Cette ligne marque le début d'une unité de travail. Si l'opération échoue, toutes les modifications faites à partir de ce point devront être annulées.
-
----
 
 ### 3. L'Opération de Persistance et la Validation
 
