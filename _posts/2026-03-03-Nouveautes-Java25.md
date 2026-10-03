@@ -31,8 +31,6 @@ Le code Java est devenu beaucoup plus concis et expressif.
 - **Pattern Matching (Java 16, 21, 25) :** Simplifie les tests de type avec `instanceof` et les structures complexes dans les `switch`. Java 25 finalise le support des **types primitifs** dans ces patterns.
 - **Compact Source Files (Java 25) :** Permet d'écrire des petits programmes sans déclarer de classe explicite ni de `public static void main(String[] args)` complexe, idéal pour l'apprentissage et les scripts.
 
----
-
 ## 2. Révolution du Modèle de Concurrence
 
 C’est sans doute le plus gros changement pour les performances des serveurs.
@@ -72,8 +70,6 @@ Pour illustrer concrètement le fossé entre les deux versions, voici la compara
 ### En Java 8 (L'époque du "Boilerplate")
 
 Le code est verbeux car nous devons tout définir manuellement.
-
-Java
 
 ```java
 import java.util.Objects;
@@ -129,8 +125,6 @@ public class Main {
 ### En Java 25 (L'époque de l'expressivité)
 
 Le même programme devient extrêmement compact grâce aux **Records**, au **Pattern Matching** et aux **Switch Expressions**. En Java 25, on peut même se passer de la structure de classe `public static void main` pour les scripts simples.
-
-Java
 
 ```java
 // 1. Record : définit constructeur, getters, equals, hashCode en 1 ligne
