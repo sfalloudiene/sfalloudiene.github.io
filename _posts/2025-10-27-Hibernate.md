@@ -313,7 +313,7 @@ Ce bloc assure l'intégrité des données :
 |  | `length = X` | Définit la **taille** maximale pour un champ de type `String` (VARCHAR). |
 |  | `@Transient` | Indique que l'attribut **ne doit pas être persisté** dans la base de données. |
 
-# Initialisation de l’entity manager
+## Initialisation de l’entity manager
 
 ```java
 EntityManagerFactory emf;
