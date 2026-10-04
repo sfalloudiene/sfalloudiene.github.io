@@ -73,7 +73,7 @@ repository_tree: main
 paths:
   root    : # title link url, "/" (default)
   home    : /blog/ # home layout url, "/" (default) - overridden: "home" concept = blog listing, site root "/" is the portfolio
-  archive : # "/archive.html" (default)
+  archive : /blog/ # "/archive.html" (default) - overridden: archive.html was removed, its tag-filter + year view merged into /blog/
   rss     : # "/feed.xml" (default)
 
 
@@ -105,7 +105,10 @@ chart: # false (default), true
 
 ## => Paginate
 ##############################
-paginate: 9
+# /blog/ no longer reads `paginator.posts` (it lists site.posts directly,
+# grouped by year, archive-style) - kept high so jekyll-paginate never
+# generates an unused /blog/page2/ duplicate of the same content.
+paginate: 9999
 paginate_path: /blog/page:num # must stay under /blog/ - jekyll-paginate only paginates an index.html whose directory matches this path's hierarchy
 
 

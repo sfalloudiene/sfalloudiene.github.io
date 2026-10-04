@@ -30,13 +30,30 @@ articles:
   data_source: none
 ---
 
-<div class="recent-posts__grid">
-  {%- for post in paginator.posts -%}
-    {%- include post-card.html post=post -%}
-  {%- endfor -%}
+<div class="layout--archive js-all">
+  {%- include tags.html -%}
+
+  <div class="js-result layout--archive__result">
+    {%- assign _sorted_posts = site.posts | sort: 'date' | reverse -%}
+    {%- assign _current_year = '' -%}
+    {%- for post in _sorted_posts -%}
+      {%- assign _post_year = post.date | date: '%Y' -%}
+      {%- if _post_year != _current_year -%}
+        {%- unless forloop.first -%}</div></section>{%- endunless -%}
+        <section class="blog-year-group">
+          <h2 class="article-list__group-header">{{ _post_year }}</h2>
+          <div class="recent-posts__grid">
+        {%- assign _current_year = _post_year -%}
+      {%- endif -%}
+      {%- include post-card.html post=post -%}
+      {%- if forloop.last -%}</div></section>{%- endif -%}
+    {%- endfor -%}
+  </div>
 </div>
 
-<p class="blog-archives-link"><a href="{{ '/archive.html' | relative_url }}">Voir les archives par année →</a></p>
+<script>
+  {%- include scripts/blog-filter.js -%}
+</script>
 
 <div class="newsletter-subscribe newsletter-subscribe--boxed">
   <p class="newsletter-subscribe__text"><strong>Envie de recevoir mes prochaines notes par email ?</strong></p>

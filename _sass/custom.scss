@@ -580,20 +580,8 @@ $nav-font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetic
   text-align: center;
 }
 
-// Lien discret vers /archive.html, retiree du menu principal (redondante
-// avec /blog/ a ce volume de contenu) mais gardee accessible ici.
-.blog-archives-link {
-  text-align: center;
-  margin: 1.5rem 0;
-  font-size: 0.85rem;
-
-  a {
-    color: $text-color-l;
-
-    &:hover {
-      color: $main-color-1;
-    }
-  }
+.blog-year-group {
+  margin-bottom: map-get($spacers, 5);
 }
 
 @include media-breakpoint-down(md) {
