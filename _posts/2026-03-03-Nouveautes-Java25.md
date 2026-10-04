@@ -160,5 +160,3 @@ void main() {
 2. **La sécurité :** Le `switch` en expression est "exhaustif" (le compilateur vous oblige à couvrir tous les cas ou à mettre un `default`), évitant des bugs de logique.
 3. **La lisibilité :** Les blocs de texte (`"""`) permettent de voir exactement à quoi ressemblera la sortie console sans concaténations complexes de `+ "\n" +`.
 4. **L'immutabilité par défaut :** Le `record` garantit que les données ne seront pas modifiées par accident, ce qui est crucial pour les applications modernes et les **Virtual Threads**.
-
-Est-ce que l'un de ces points (comme les Threads Virtuels ou la gestion de la mémoire) vous intéresse plus particulièrement pour votre projet ?
