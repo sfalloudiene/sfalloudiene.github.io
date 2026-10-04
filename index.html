@@ -12,7 +12,7 @@ title: Accueil
     <h1>Serigne Fallou Diene</h1>
     <p class="portfolio-hero__tagline">Ingénieur développement junior</p>
     <p>Ingénieur développement junior chez Netceler. Diplômé de l'ESIGELEC (dominante ISN, promotion 2026). Je construis des applications Java côté entreprise, et je bricole des projets perso sur mon temps libre. Ce site rassemble mon parcours, mes projets, et mes notes techniques.</p>
-    <p class="portfolio-hero__disclaimer">Le contenu de ce site (articles, opinions) m'engage personnellement et ne reflète pas la position de Netceler.</p>
+    <p class="portfolio-hero__disclaimer">Le contenu de ce site (notes, opinions) m'engage personnellement et ne reflète pas la position de Netceler.</p>
     <div class="portfolio-hero__actions">
       <a class="button button--primary button--pill" href="{{ '/blog/' | relative_url }}">Lire mes notes techniques</a>
       <a class="button button--secondary button--pill" href="{{ '/about.html' | relative_url }}">À propos</a>
@@ -22,22 +22,22 @@ title: Accueil
 </div>
 
 <section class="recent-posts">
-  <h2 class="timeline-section__heading">Derniers articles</h2>
+  <h2 class="timeline-section__heading">Dernières notes</h2>
   <div class="recent-posts__grid">
     {%- for post in site.posts limit: 4 -%}
       {%- include post-card.html post=post -%}
     {%- endfor -%}
   </div>
   <div class="recent-posts__more">
-    <a class="button button--secondary button--pill" href="{{ '/blog/' | relative_url }}">Voir tous les articles</a>
+    <a class="button button--secondary button--pill" href="{{ '/blog/' | relative_url }}">Voir toutes les notes</a>
   </div>
 </section>
 
 <div class="newsletter-subscribe newsletter-subscribe--boxed">
-  <p class="newsletter-subscribe__text"><strong>Envie de recevoir mes prochains articles par email ?</strong></p>
+  <p class="newsletter-subscribe__text"><strong>Envie de recevoir mes prochaines notes par email ?</strong></p>
   <form action="https://buttondown.com/api/emails/embed-subscribe/serigne_fallou" method="post" class="newsletter-subscribe__form">
     <input type="email" name="email" placeholder="ton@email.com" required class="newsletter-subscribe__input">
     <button type="submit" class="button button--primary button--pill">S'abonner</button>
   </form>
-  <p class="newsletter-subscribe__note">Un email à chaque nouvel article, rien d'autre. Désabonnement en un clic.</p>
+  <p class="newsletter-subscribe__note">Un email à chaque nouvelle note, rien d'autre. Désabonnement en un clic.</p>
 </div>

@@ -64,7 +64,7 @@ jobs:
             NAME_PART=$(echo "$SLUG" | sed "s/^${DATE_PART}-//")
             URL="${SITE_URL}/${YEAR}/${MONTH}/${DAY}/${NAME_PART}.html"
 
-            BODY=$(printf "Nouvel article dans les Notes techniques :\n\n**%s**\n\nLire l'article complet : %s" "$TITLE" "$URL")
+            BODY=$(printf "Nouvelle note technique :\n\n**%s**\n\nLire la note complète : %s" "$TITLE" "$URL")
 
             # Buttondown's API creates an email as a draft (or scheduled) - it does
             # not accept status=about_to_send directly on creation. Sending it

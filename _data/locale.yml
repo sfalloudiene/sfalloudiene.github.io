@@ -124,7 +124,7 @@ fr: &FR
   NEXT                    : "SUIVANT"
   ARTICLE_DATE_FORMAT     : "%d %b, %Y"
   ARTICLE_LIST_DATE_FORMAT: "%d %b"
-  STATISTICS              : "[POST_COUNT] articles, [PAGE_COUNT] pages."
+  STATISTICS              : "[POST_COUNT] notes, [PAGE_COUNT] pages."
   LICENSE_ANNOUNCE        : "Ce travail est sous licence [LICENSE]."
   POST_ON_GITHUB          : "Modifier sur Github"
   FOLLOW_ME               : "Suivez-moi sur [NAME]."
