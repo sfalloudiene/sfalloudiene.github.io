@@ -50,7 +50,7 @@ Quelques projets perso sur lesquels j'ai travaillé, et les certifications que j
 
 <section class="timeline-section">
 <h2 class="timeline-section__heading">Projets</h2>
-<div class="projects">
+<div class="projects projects--grid">
 
 <a class="project-card" href="https://github.com/sfalloudiene/EsigTalk_Website" target="_blank" rel="noopener">
 <div class="project-card__header">
@@ -84,7 +84,7 @@ Quelques projets perso sur lesquels j'ai travaillé, et les certifications que j
 
 <section class="timeline-section">
 <h2 class="timeline-section__heading">Certifications</h2>
-<div class="projects">
+<div class="projects projects--grid">
 
 <a class="project-card" href="https://app.amigoscode.com/courses/267273/certificate" target="_blank" rel="noopener">
 <div class="project-card__header">
