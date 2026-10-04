@@ -26,7 +26,6 @@ subtitle: Ingénieur développement junior
 description: > # this means to ignore newlines until "Language & timezone"
   Notes et retours d'expérience d'un développeur : Java, web, mobile et projets perso.
 logo: /assets/images/profile.jpg
-image: /assets/images/home-cover.jpg
 social:
   name: Serigne Fallou Diene
   links:
@@ -222,6 +221,14 @@ defaults:
       show_subscribe: true
       show_author_profile: true
       pageview: true
+      image: /assets/images/profile.jpg # fallback OG/Twitter image for posts with no cover of their own
+  - scope:
+      path: ""
+      type: pages
+    values:
+      image: /assets/images/profile.jpg # jekyll-seo-tag only reads a page's own `image` front matter, not
+        # the site-wide `image:` key above, so top-level pages (index.html, blog/index.html, about.md, ...)
+        # need it set via this default to get a social-preview image at all
 
 
 ## => Plugins
