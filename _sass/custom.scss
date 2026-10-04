@@ -388,21 +388,8 @@ $nav-font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetic
   margin: 2rem 0 1rem;
 }
 
-// "Projets" et "Certifications" ont plusieurs cartes et suivent une
-// grille fixe (2 sur tel, 3 sur tablette/pc) plutot que l'auto-fit
-// fluide ci-dessus - qui reste pour "Projet en cours", une seule carte
-// qui doit garder toute la largeur.
-.projects--grid {
-  grid-template-columns: repeat(2, 1fr);
-
-  @include media-breakpoint-up(md) {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
 .project-card {
   display: block;
-  min-width: 0; // sinon un grid item ne retrecit jamais sous la taille de son contenu (titre + badge langage) et deborde a l'etroit
   padding: 1.25rem;
   border: 1px solid $border-color-l;
   border-radius: map-get($base, border-radius-lg);
@@ -420,15 +407,13 @@ $nav-font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetic
 .project-card__header {
   display: flex;
   align-items: center;
-  flex-wrap: wrap; // badge langage passe a la ligne plutot que d'ecraser le titre en colonne etroite (2 cartes/ligne sur tel)
   justify-content: space-between;
-  gap: 0.25rem 0.75rem;
+  gap: 0.75rem;
   margin-bottom: 0.5rem;
 }
 
 .project-card__title {
   margin: 0;
-  min-width: 0;
   font-size: 1.05rem;
 }
 
