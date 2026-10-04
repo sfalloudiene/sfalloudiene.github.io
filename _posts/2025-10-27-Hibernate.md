@@ -111,7 +111,7 @@ En d'autres termes, Hibernate a besoin de cette méthode simple pour **construir
 
 ## Notre DAO
 
-Le DAO d’une classe JPA se definit comme suit : 
+Le DAO d’une classe JPA se définit comme suit : 
 
 ```java
 package fr.esigelec.garage.dao;
@@ -151,7 +151,7 @@ public class VoitureDAO {
 				if (em.getTransaction().isActive()) {
 					em.getTransaction().rollback();
 				}
-				throw e; // On remonte l'Exeption
+				throw e; // On remonte l'Exception
 			}
 		}
 	}
@@ -246,7 +246,7 @@ public void ajouter(Voiture v) {
 				if (em.getTransaction().isActive()) {
 					em.getTransaction().rollback();
 				}
-				throw e; // On remonte l'Exeption
+				throw e; // On remonte l'Exception
 			}
 		}
 	}

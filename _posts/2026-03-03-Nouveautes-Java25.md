@@ -22,7 +22,7 @@ Voici les évolutions majeures classées par thématiques :
 
 Le code Java est devenu beaucoup plus concis et expressif.
 
-- **Records (Java 16) :** Des classes de données immuables définies en une seule ligne. Fini les getters/setters, `equals()`, `hashCode()` et `toString()` manuels.Java
+- **Records (Java 16) :** Des classes de données immuables définies en une seule ligne. Fini les getters/setters, `equals()`, `hashCode()` et `toString()` manuels.
     
     `public record User(String name, int age) {}`
     
