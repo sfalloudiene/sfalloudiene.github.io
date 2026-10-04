@@ -571,6 +571,11 @@ $nav-font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetic
   color: rgba(255, 255, 255, 0.85);
 }
 
+.recent-post-card__meta-sep {
+  margin: 0 0.35rem;
+  color: rgba(255, 255, 255, 0.5);
+}
+
 .recent-posts__more {
   text-align: center;
 }

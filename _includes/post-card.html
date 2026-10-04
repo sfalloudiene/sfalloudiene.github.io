@@ -12,6 +12,9 @@
       {%- endif -%}
       <h3 class="recent-post-card__title">{{ _post.title }}</h3>
       <div class="recent-post-card__meta">
+        {%- include snippets/get-locale-string.html key='ARTICLE_LIST_DATE_FORMAT' -%}
+        <i class="far fa-calendar-alt"></i> {{ _post.date | date: __return }}
+        <span class="recent-post-card__meta-sep">·</span>
         {%- include snippets/reading-time.html article=_post -%}
         <i class="far fa-clock"></i> {{ __return }} min de lecture
       </div>
