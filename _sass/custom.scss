@@ -669,6 +669,17 @@ $nav-font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetic
   }
 }
 
+// Pas de logo officiel disponible pour ces outils (pas de SVG de marque
+// comme pour Python/React/etc.) - l'icone Font Awesome generique reste,
+// mais coloree plutot que grise pour ne pas trancher avec les vrais logos.
+.skill-badge__icon--oracle i {
+  color: #f80000; // rouge Oracle (PL/SQL est un langage Oracle)
+}
+
+.skill-badge__icon--accent i {
+  color: $main-color-1;
+}
+
 .skill-badge__label {
   font-size: 0.75rem;
   color: $text-color-l;
@@ -856,6 +867,31 @@ $nav-font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetic
 
   .code-copy-btn--done {
     animation: none !important;
+  }
+}
+
+// Sur mobile/tablette les blocs de code debordent souvent (overflow-x:
+// auto deja en place dans le theme) mais rien ne l'indique visuellement -
+// un lecteur peut rater du contenu sans savoir qu'il faut faire defiler.
+// Ce degrade a droite sert d'indice.
+@include media-breakpoint-down(md) {
+  .article__content {
+    .highlighter-rouge,
+    figure.highlight {
+      position: relative;
+
+      &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        width: 1.5rem;
+        background: linear-gradient(to right, transparent, $text-background-color);
+        pointer-events: none;
+        border-radius: 0 map-get($base, border-radius) map-get($base, border-radius) 0;
+      }
+    }
   }
 }
 

@@ -26,6 +26,7 @@ titles:
   # @end locale config
 key: page-projects
 comment: false
+related_posts: false
 ---
 
 Quelques projets perso sur lesquels j'ai travaillé, et les certifications que j'ai passées.

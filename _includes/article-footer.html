@@ -37,7 +37,13 @@
     <section class="page__comments d-print-none">{%- include comments.html -%}</section>
   {%- endif -%}
 
-  {%- include article/footer/related-posts.html -%}
+  {%- include snippets/assign.html
+    target = true
+    source0=layout.related_posts source1=page.related_posts -%}
+  {%- assign _show_related_posts = __return -%}
+  {%- if _show_related_posts != false -%}
+    {%- include article/footer/related-posts.html -%}
+  {%- endif -%}
 
   {%- if _show_author_profile -%}
     {%- if page.author -%}

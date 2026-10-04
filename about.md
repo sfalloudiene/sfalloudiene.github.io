@@ -26,6 +26,7 @@ titles:
   # @end locale config
 key: page-about
 comment: false
+related_posts: false
 ---
 
 Bonjour, je suis Serigne Fallou Diene, ingénieur développement junior chez [Netceler](https://www.netceler.com).
@@ -62,7 +63,7 @@ Ce site rassemble mon parcours, [mes projets]({{ '/projects.html' | relative_url
 <span class="skill-badge__label">HTML/CSS</span>
 </div>
 <div class="skill-badge">
-<div class="skill-badge__icon"><i class="fas fa-database"></i></div>
+<div class="skill-badge__icon skill-badge__icon--oracle"><i class="fas fa-database"></i></div>
 <span class="skill-badge__label">PL/SQL</span>
 </div>
 <div class="skill-badge">
@@ -92,7 +93,7 @@ Ce site rassemble mon parcours, [mes projets]({{ '/projects.html' | relative_url
 <span class="skill-badge__label">Cucumber</span>
 </div>
 <div class="skill-badge">
-<div class="skill-badge__icon"><i class="fas fa-chart-bar"></i></div>
+<div class="skill-badge__icon skill-badge__icon--accent"><i class="fas fa-chart-bar"></i></div>
 <span class="skill-badge__label">Allure Report</span>
 </div>
 </div>
@@ -118,7 +119,7 @@ Ce site rassemble mon parcours, [mes projets]({{ '/projects.html' | relative_url
 <span class="skill-badge__label">Sonar</span>
 </div>
 <div class="skill-badge">
-<div class="skill-badge__icon"><i class="fas fa-code-branch"></i></div>
+<div class="skill-badge__icon skill-badge__icon--accent"><i class="fas fa-code-branch"></i></div>
 <span class="skill-badge__label">OpenRewrite</span>
 </div>
 </div>
