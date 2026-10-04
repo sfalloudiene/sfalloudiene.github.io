@@ -27,27 +27,27 @@ header:
 
   - titles:
       # @start locale config
-      en      : &EN       Blog
+      en      : &EN       Technical Notes
       en-GB   : *EN
       en-US   : *EN
       en-CA   : *EN
       en-AU   : *EN
-      zh-Hans : &ZH_HANS  博客
+      zh-Hans : &ZH_HANS  技术笔记
       zh      : *ZH_HANS
       zh-CN   : *ZH_HANS
       zh-SG   : *ZH_HANS
-      zh-Hant : &ZH_HANT  部落格
+      zh-Hant : &ZH_HANT  技術筆記
       zh-TW   : *ZH_HANT
       zh-HK   : *ZH_HANT
-      ko      : &KO       블로그
+      ko      : &KO       기술 노트
       ko-KR   : *KO
-      fr      : &FR       Blog
+      fr      : &FR       Notes techniques
       fr-BE   : *FR
       fr-CA   : *FR
       fr-CH   : *FR
       fr-FR   : *FR
       fr-LU   : *FR
-      tr      : &TR       Blog
+      tr      : &TR       Teknik Notlar
       # @end locale config
     url: /blog/
 

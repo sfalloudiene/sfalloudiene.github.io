@@ -1,6 +1,6 @@
 # fallou.dev
 
-Portfolio et blog personnel de Serigne Fallou Diene, construit avec [Jekyll](https://jekyllrb.com/) et le thème [TeXt](https://github.com/kitian616/jekyll-TeXt-theme).
+Portfolio et notes techniques personnelles de Serigne Fallou Diene, construit avec [Jekyll](https://jekyllrb.com/) et le thème [TeXt](https://github.com/kitian616/jekyll-TeXt-theme).
 
 ## Développement local
 
