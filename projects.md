@@ -1,23 +1,23 @@
 ---
 layout: article
-title: Projets
+title: Projets et certifications
 titles:
   # @start locale config
-  en      : &EN       Projects
+  en      : &EN       Projects & Certifications
   en-GB   : *EN
   en-US   : *EN
   en-CA   : *EN
   en-AU   : *EN
-  zh-Hans : &ZH_HANS  项目
+  zh-Hans : &ZH_HANS  项目与认证
   zh      : *ZH_HANS
   zh-CN   : *ZH_HANS
   zh-SG   : *ZH_HANS
-  zh-Hant : &ZH_HANT  項目
+  zh-Hant : &ZH_HANT  項目與認證
   zh-TW   : *ZH_HANT
   zh-HK   : *ZH_HANT
-  ko      : &KO       프로젝트
+  ko      : &KO       프로젝트 및 자격증
   ko-KR   : *KO
-  fr      : &FR       Projets
+  fr      : &FR       Projets et certifications
   fr-BE   : *FR
   fr-CA   : *FR
   fr-CH   : *FR
