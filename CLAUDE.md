@@ -56,6 +56,10 @@ This is a stock TeXt theme mechanism (`_layouts/page.html`, `_article_header_typ
 - Portfolio-specific styles (`.portfolio-hero*`, `.timeline*`) live in `_sass/custom.scss`.
 - **`/confidentialite.html`** — plain-language privacy note (analytics, Giscus/GitHub, Buttondown, contact). Not in the main nav, linked discreetly from the footer (`_includes/footer.html`).
 
+## Sticky header
+
+`.page__header` (the wrapper `_layouts/page.html` puts around `<header class="header">`) is `position: sticky; top: 0;` in `custom.scss` — **the sticky rule is on the wrapper, not on `.header` itself**, on purpose. A stickily-positioned element can only move within the bounds of its direct parent; `.header`'s direct parent is `.page__header`, which hugs it with zero extra height, so putting `position: sticky` on `.header` directly compiles fine and *looks* right in devtools but silently never actually sticks (no room to move within a same-height parent). `.page__header` is instead a sibling of `.page__content` inside `.page__main-inner` (the full page height), which gives it real room to stick through. If the header ever needs restyling, keep the sticky positioning on `.page__header`.
+
 ## Custom domain
 
 Site is served at **fallou.dev** via a `CNAME` file at the repo root (committing it is equivalent to setting the custom domain in repo Settings → Pages). DNS is 4 A records at the registrar pointing `fallou.dev` to GitHub Pages' IPs (185.199.108/109/110/111.153) — that part isn't in this repo and isn't controllable from here.

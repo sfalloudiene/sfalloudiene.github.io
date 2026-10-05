@@ -219,7 +219,7 @@ defaults:
         toc: true
       show_edit_on_github: true
       show_subscribe: true
-      show_author_profile: true
+      show_author_profile: false
       pageview: true
       image: /assets/images/profile.jpg # fallback OG/Twitter image for posts with no cover of their own
   - scope:

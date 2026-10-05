@@ -18,6 +18,20 @@ $nav-font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetic
   border-bottom: 1px solid $border-color-l;
 }
 
+// position: sticky va sur .page__header (le wrapper que _layouts/page.html
+// place autour de <header>), pas sur .header lui-meme : un element sticky
+// reste coince dans les bornes de son parent direct, et .page__header ne
+// fait que la hauteur de .header - sans marge de manoeuvre, sticky n'a
+// litteralement nulle part ou "coller" et se comporte comme s'il etait
+// position: static. .page__header est en revanche le frere de .page__content
+// (toute la page), ce qui lui donne la hauteur necessaire pour suivre le
+// scroll jusqu'en bas.
+.page__header {
+  position: sticky;
+  top: 0;
+  z-index: 995; // sous .actions/.mask/.sidebar/.modal (996-999, cf _variables.scss) pour ne pas passer devant un modal/la sidebar mobile
+}
+
 .header__logo {
   width: map-get($base, font-size-h4) * 1.6;
   height: map-get($base, font-size-h4) * 1.6;
