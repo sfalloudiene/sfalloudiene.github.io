@@ -9,7 +9,7 @@
   {%- endif -%}
 {%- endfor -%}
 <a class="recent-post-card" href="{{ _post.url | relative_url }}" data-tags="{{ _post_tags_encoded }}">
-  <div class="recent-post-card__image">
+  <div class="recent-post-card__image" style="view-transition-name: post-{{ _post.url | slugify }}; view-transition-class: post-cover;">
     <div class="recent-post-card__image-bg"{% if _post.cover %}{%- include snippets/get-nav-url.html path=_post.cover -%} style="background-image: url('{{ __return }}');"{% endif %}></div>
     <div class="recent-post-card__overlay">
       {%- if _post.tags -%}

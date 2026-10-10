@@ -897,6 +897,270 @@ $nav-font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetic
   animation: card-filter-in 0.45s cubic-bezier(0.2, 0.8, 0.2, 1) backwards;
 }
 
+// Timeline "A propos" (motion.js) : la ligne orange se remplit selon --progress
+// et les points passent de gris a orange quand elle les atteint. Sans JS (ou en
+// mouvement reduit), .timeline--animated n'est pas pose et rien ne change.
+.timeline--animated {
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -2px;
+    z-index: 0;
+    width: 2px;
+    height: 100%;
+    background: $main-color-1;
+    box-shadow: 0 0 8px rgba($main-color-1, 0.6);
+    transform: scaleY(var(--progress, 0));
+    transform-origin: top;
+  }
+
+  .timeline__item::before {
+    z-index: 1;
+    background: $border-color-l;
+    transition: background-color 0.3s ease, box-shadow 0.4s ease, transform 0.3s ease;
+  }
+
+  .timeline__item.is-lit::before {
+    background: $main-color-1;
+    box-shadow: 0 0 0 5px rgba($main-color-1, 0.18);
+    transform: translateX(-50%) scale(1.15);
+  }
+}
+
+// Trait orange qui se trace sous les titres de section (motion.js pose
+// .heading-draw puis .is-drawn quand le titre entre a l'ecran).
+.timeline-section__heading {
+  position: relative;
+}
+
+.timeline-section__heading.heading-draw::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 3.5rem;
+  height: 2px;
+  background: $main-color-1;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.7s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.timeline-section__heading.heading-draw.is-drawn::after {
+  transform: scaleX(1);
+}
+
+// Pastille du menu qui glisse d'un lien a l'autre (motion.js). Quand elle est
+// active (.navigation--pill), les liens n'ont plus leur propre fond.
+.header .js-navigation > ul {
+  position: relative;
+}
+
+.navigation__pill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  border-radius: map-get($base, border-radius-lg);
+  background: rgba($header-text-color, 0.1);
+  opacity: 0;
+  pointer-events: none;
+  transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1), width 0.35s cubic-bezier(0.2, 0.8, 0.2, 1), height 0.35s ease, opacity 0.2s ease;
+}
+
+.header .navigation--pill .navigation__item {
+  position: relative;
+  z-index: 1;
+
+  a,
+  a:hover {
+    background-color: transparent !important;
+  }
+}
+
+// Badge "En cours" : point qui pulse, facon indicateur "en direct".
+.project-card__badge {
+  position: relative;
+  padding-left: 1.3rem;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0.55rem;
+    width: 0.4rem;
+    height: 0.4rem;
+    margin-top: -0.2rem;
+    border-radius: 50%;
+    background: $main-color-1;
+    animation: badge-pulse 1.8s ease-out infinite;
+  }
+}
+
+@keyframes badge-pulse {
+  0% { box-shadow: 0 0 0 0 rgba($main-color-1, 0.6); }
+  70% { box-shadow: 0 0 0 0.45rem rgba($main-color-1, 0); }
+  100% { box-shadow: 0 0 0 0 rgba($main-color-1, 0); }
+}
+
+// Liens dans le texte des articles/pages : soulignement qui se trace de gauche
+// a droite au survol, au lieu du text-decoration qui apparait d'un coup.
+.article__content a:not(.button):not(.anchor):not(.project-card) {
+  text-decoration: none !important;
+  background-image: linear-gradient(currentColor, currentColor);
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  background-size: 0 1px;
+  transition: background-size 0.3s ease, color 0.15s ease;
+
+  &:hover,
+  &:focus-visible {
+    background-size: 100% 1px;
+  }
+}
+
+// Bouton "S'abonner" : coche qui se dessine avant l'envoi du formulaire.
+.newsletter-subscribe__form.is-sending button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.newsletter-check {
+  display: block;
+  width: 1.4em;
+  height: 1.4em;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 24;
+  stroke-dashoffset: 24;
+  animation: check-draw 0.45s 0.1s ease forwards;
+}
+
+@keyframes check-draw {
+  to { stroke-dashoffset: 0; }
+}
+
+// Icones de competences : petit rebond au survol.
+@keyframes skill-bounce {
+  0% { transform: translateY(0) scale(1); }
+  30% { transform: translateY(-8px) scale(1.06); }
+  60% { transform: translateY(0) scale(0.97); }
+  100% { transform: translateY(0) scale(1); }
+}
+
+.skill-badge:hover .skill-badge__icon {
+  animation: skill-bounce 0.6s cubic-bezier(0.3, 1.6, 0.5, 1);
+}
+
+// Sommaire des articles : la section en cours de lecture est marquee par une
+// barre orange qui se deploie et un leger decalage (classe .active posee par
+// le toc.js du theme).
+ul.toc > li {
+  position: relative;
+  padding-left: 0.7rem;
+  transition: transform 0.25s ease;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0.35em;
+    bottom: 0.35em;
+    left: 0;
+    width: 2px;
+    border-radius: 2px;
+    background: $main-color-1;
+    transform: scaleY(0);
+    transition: transform 0.25s ease;
+  }
+
+  &.active {
+    transform: translateX(2px);
+
+    &::before {
+      transform: scaleY(1);
+    }
+  }
+}
+
+// Bouton "retour en haut" (articles et pages longues), anneau = progression.
+.back-to-top {
+  position: fixed;
+  right: 1.25rem;
+  bottom: 1.25rem;
+  z-index: 990;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  color: $text-color-d;
+  background: rgba($main-color-3, 0.85);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(12px) scale(0.9);
+  transition: opacity 0.25s ease, transform 0.25s ease, visibility 0s linear 0.25s;
+
+  &.is-visible {
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    transition: opacity 0.25s ease, transform 0.25s ease, visibility 0s;
+  }
+
+  &:hover .back-to-top__arrow {
+    transform: translateY(-2px);
+  }
+}
+
+.back-to-top__ring {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  transform: rotate(-90deg);
+}
+
+.back-to-top__track,
+.back-to-top__progress {
+  fill: none;
+  stroke-width: 3;
+}
+
+.back-to-top__track {
+  stroke: rgba(255, 255, 255, 0.12);
+}
+
+.back-to-top__progress {
+  stroke: $main-color-1;
+  stroke-linecap: round;
+  transition: stroke-dashoffset 0.1s linear;
+}
+
+.back-to-top__arrow {
+  position: relative;
+  width: 1.2rem;
+  height: 1.2rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transition: transform 0.2s ease;
+}
+
 // Coeur "like" : petit rebond a chaque like, plutot qu'un changement de
 // couleur instantane (voir reactions.js).
 @keyframes like-pop {
@@ -1004,8 +1268,19 @@ $nav-font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetic
   .page__header .header,
   .page__header .header__title,
   .page__header .navigation > ul,
-  .page__header .header__logo {
+  .page__header .header__logo,
+  .navigation__pill,
+  .article__content a,
+  ul.toc > li,
+  ul.toc > li::before,
+  .back-to-top,
+  .back-to-top__progress {
     transition: none !important;
+  }
+
+  .project-card__badge::before,
+  .skill-badge:hover .skill-badge__icon {
+    animation: none !important;
   }
 
   .recent-post-card__image-bg {

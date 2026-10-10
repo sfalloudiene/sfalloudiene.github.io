@@ -60,6 +60,12 @@ This is a stock TeXt theme mechanism (`_layouts/page.html`, `_article_header_typ
 
 `.page__header` (the wrapper `_layouts/page.html` puts around `<header class="header">`) is `position: sticky; top: 0;` in `custom.scss` — **the sticky rule is on the wrapper, not on `.header` itself**, on purpose. A stickily-positioned element can only move within the bounds of its direct parent; `.header`'s direct parent is `.page__header`, which hugs it with zero extra height, so putting `position: sticky` on `.header` directly compiles fine and *looks* right in devtools but silently never actually sticks (no room to move within a same-height parent). `.page__header` is instead a sibling of `.page__content` inside `.page__main-inner` (the full page height), which gives it real room to stick through. If the header ever needs restyling, keep the sticky positioning on `.page__header`.
 
+## Motion / animations
+
+- **Page transitions** live in `assets/css/motion.css`, a plain CSS file kept **out of Sass on purpose**: `@view-transition` and `::view-transition-*(…)` selectors may not parse in GitHub Pages' older Sass. Post-card images and article overlay headers share `view-transition-name: post-<url|slugify>` so the image "flies" into the article header — a name must be unique per page, or the browser silently skips the whole transition.
+- Hero entrance, card tilt, timeline fill, nav pill, heading underline, subscribe checkmark and back-to-top are driven by `_includes/scripts/{header-scroll,card-tilt,motion}.js` (included in `base.html`) plus the "Animations" section of `custom.scss`.
+- Everything must stay off under `prefers-reduced-motion`: the JS bails out early, and the `@media (prefers-reduced-motion: reduce)` block in `custom.scss` kills the CSS animations/transitions — add new animated selectors there too.
+
 ## Custom domain
 
 Site is served at **fallou.dev** via a `CNAME` file at the repo root (committing it is equivalent to setting the custom domain in repo Settings → Pages). DNS is 4 A records at the registrar pointing `fallou.dev` to GitHub Pages' IPs (185.199.108/109/110/111.153) — that part isn't in this repo and isn't controllable from here.

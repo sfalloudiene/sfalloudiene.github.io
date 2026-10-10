@@ -1,0 +1,52 @@
+/* Transitions entre pages (View Transitions API, navigation multi-pages).
+   Fichier CSS brut, hors Sass : le Sass plus ancien de GitHub Pages ne connait
+   pas forcement @view-transition ni les selecteurs ::view-transition-*.
+   Les navigateurs qui ne supportent pas l'API ignorent simplement ce fichier. */
+
+@view-transition {
+  navigation: auto;
+}
+
+/* Le header ne fait pas partie du fondu : il reste en place d'une page a l'autre. */
+.page__header {
+  view-transition-name: site-header;
+}
+
+/* Fondu + leger glissement du contenu de la page. */
+::view-transition-old(root) {
+  animation: vt-page-out 0.18s ease-in both;
+}
+
+::view-transition-new(root) {
+  animation: vt-page-in 0.32s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+
+@keyframes vt-page-out {
+  to { opacity: 0; transform: translateY(-8px); }
+}
+
+@keyframes vt-page-in {
+  from { opacity: 0; transform: translateY(12px); }
+}
+
+/* L'image d'une carte d'article "s'envole" jusqu'a l'en-tete de l'article
+   (meme view-transition-name des deux cotes, cf post-card.html et page.html).
+   object-fit: cover evite que l'image soit deformee pendant le passage d'un
+   format carre au bandeau large. */
+::view-transition-group(*.post-cover) {
+  animation-duration: 0.45s;
+  animation-timing-function: cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+::view-transition-old(*.post-cover),
+::view-transition-new(*.post-cover) {
+  height: 100%;
+  object-fit: cover;
+  overflow: hidden;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  @view-transition {
+    navigation: none;
+  }
+}

@@ -13,6 +13,9 @@
 {%- include snippets/prepend-baseurl.html path='/assets/css/dark.css' -%}
 <link rel="stylesheet" href="{{ __return }}">
 
+{%- include snippets/prepend-baseurl.html path='/assets/css/motion.css' -%}
+<link rel="stylesheet" href="{{ __return }}">
+
 {%- include snippets/get-sources.html -%}
 {%- assign _sources = __return -%}
 <link rel="stylesheet" href="{{ _sources.font_awesome }}" >

@@ -10,6 +10,14 @@ type: article
 
 <div class="reading-progress d-print-none"><div class="reading-progress__bar"></div></div>
 
+<button type="button" class="back-to-top d-print-none" aria-label="Retour en haut de la page">
+  <svg class="back-to-top__ring" viewBox="0 0 48 48" aria-hidden="true">
+    <circle class="back-to-top__track" cx="24" cy="24" r="21"/>
+    <circle class="back-to-top__progress" cx="24" cy="24" r="21"/>
+  </svg>
+  <svg class="back-to-top__arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5M5.5 11.5L12 5l6.5 6.5"/></svg>
+</button>
+
 <div class="layout--article">
   {%- include article/top/custom.html -%}
 

@@ -121,7 +121,7 @@ layout: base
               {%- assign _header_style = _header_style | append: 'min-height:' | append: _article_header_height | append: ';' -%}
             {%- endif -%}
 
-            <div class="article__header--overlay">
+            <div class="article__header--overlay"{% if page.cover %} style="view-transition-name: post-{{ page.url | slugify }}; view-transition-class: post-cover;"{% endif %}>
 
             {%- if _article_header_theme == 'light' -%}
               {%- if _article_header_align == 'center' -%}
