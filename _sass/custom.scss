@@ -339,6 +339,49 @@ $nav-font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetic
   }
 }
 
+// Entree du hero au chargement : photo qui se pose, nom lettre par lettre
+// (spans generes en Liquid dans index.html, --i = index de la lettre), puis
+// le reste du bloc qui monte en cascade.
+@keyframes hero-photo-in {
+  from { opacity: 0; transform: scale(0.85); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes hero-char-in {
+  from { opacity: 0; transform: translateY(0.45em) rotate(6deg); }
+  to { opacity: 1; transform: translateY(0) rotate(0); }
+}
+
+@keyframes hero-fade-up {
+  from { opacity: 0; transform: translateY(14px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.portfolio-hero__photo {
+  animation: hero-photo-in 0.7s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+
+.hero-name__word {
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.hero-name__char {
+  display: inline-block;
+  animation: hero-char-in 0.5s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+  animation-delay: calc(0.15s + var(--i) * 35ms);
+}
+
+.portfolio-hero__content > :not(h1) {
+  animation: hero-fade-up 0.6s ease both;
+}
+
+.portfolio-hero__content > .portfolio-hero__tagline { animation-delay: 0.6s; }
+.portfolio-hero__content > p:not([class]) { animation-delay: 0.72s; }
+.portfolio-hero__content > .portfolio-hero__disclaimer { animation-delay: 0.82s; }
+.portfolio-hero__content > .portfolio-hero__actions { animation-delay: 0.92s; }
+.portfolio-hero__content > .author-links { animation-delay: 1.02s; }
+
 .timeline-section__heading {
   margin-top: 3rem;
   padding-bottom: 0.75rem;
@@ -761,6 +804,99 @@ $nav-font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetic
   transform: translateY(0);
 }
 
+// Header qui se compacte et devient translucide une fois qu'on a scrolle
+// (.is-scrolled pose par header-scroll.js sur .page__header).
+.page__header .header {
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.page__header.is-scrolled .header {
+  background-color: rgba($header-background, 0.8);
+  backdrop-filter: saturate(160%) blur(12px);
+  -webkit-backdrop-filter: saturate(160%) blur(12px);
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.35);
+
+  // Menu mobile deplie : fond opaque, sinon la page transparait derriere les liens.
+  &.header--nav-open {
+    background-color: $header-background;
+  }
+}
+
+// A partir de md le header est sur une ligne de hauteur fixe (5rem) : on fige
+// la hauteur du wrapper sticky a cette valeur pour que le header retrecisse
+// a l'interieur sans faire remonter brusquement le contenu en dessous. Le
+// wrapper laisse passer les clics sur la bande liberee quand il est compact.
+@include media-breakpoint-up(md) {
+  .page__header {
+    height: calc(#{map-get($layout, header-height)} + 1px);
+    pointer-events: none;
+  }
+
+  .page__header .header {
+    pointer-events: auto;
+  }
+
+  .page__header .header__title,
+  .page__header .navigation > ul {
+    transition: height 0.3s ease;
+  }
+
+  .page__header .header__logo {
+    transition: width 0.3s ease, height 0.3s ease;
+  }
+
+  .page__header.is-scrolled {
+    .header__title,
+    .navigation > ul {
+      height: 3.75rem;
+    }
+
+    .header__logo {
+      width: map-get($base, font-size-h4) * 1.3;
+      height: map-get($base, font-size-h4) * 1.3;
+    }
+  }
+}
+
+// Inclinaison 3D qui suit la souris (card-tilt.js, desktop uniquement) :
+// transition courte pendant le suivi pour que la carte reste reactive, et un
+// reflet lumineux qui suit le curseur sur les cartes d'articles.
+.recent-post-card.is-tilting,
+.project-card.is-tilting {
+  transition: transform 0.12s ease-out, box-shadow 0.2s ease, border-color 0.15s ease;
+  will-change: transform;
+}
+
+.recent-post-card {
+  position: relative;
+
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: radial-gradient(circle at var(--glare-x, 50%) var(--glare-y, 50%), rgba(255, 255, 255, 0.16), transparent 55%);
+    opacity: 0;
+    transition: opacity 0.25s ease;
+  }
+
+  &.is-tilting::after {
+    opacity: 1;
+  }
+}
+
+// Cartes qui reapparaissent en cascade quand on change de filtre sur /blog/
+// (blog-filter.js). fill-mode "backwards" seulement : avec "both", la fin de
+// l'animation figerait transform et casserait le survol et l'inclinaison.
+@keyframes card-filter-in {
+  from { opacity: 0; transform: translateY(16px) scale(0.97); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.recent-post-card.is-filtered-in {
+  animation: card-filter-in 0.45s cubic-bezier(0.2, 0.8, 0.2, 1) backwards;
+}
+
 // Coeur "like" : petit rebond a chaque like, plutot qu'un changement de
 // couleur instantane (voir reactions.js).
 @keyframes like-pop {
@@ -856,6 +992,20 @@ $nav-font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetic
     transition: none !important;
     transform: none !important;
     opacity: 1 !important;
+  }
+
+  .portfolio-hero__photo,
+  .hero-name__char,
+  .portfolio-hero__content > *,
+  .recent-post-card.is-filtered-in {
+    animation: none !important;
+  }
+
+  .page__header .header,
+  .page__header .header__title,
+  .page__header .navigation > ul,
+  .page__header .header__logo {
+    transition: none !important;
   }
 
   .recent-post-card__image-bg {

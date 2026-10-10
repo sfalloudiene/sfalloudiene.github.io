@@ -9,7 +9,18 @@ title: Accueil
     <img src="{{ '/assets/images/profile.jpg' | relative_url }}" alt="Photo de Serigne Fallou Diene">
   </div>
   <div class="portfolio-hero__content">
-    <h1>Serigne Fallou Diene</h1>
+    {%- assign _hero_name = "Serigne Fallou Diene" -%}
+    {%- assign _hero_words = _hero_name | split: " " -%}
+    {%- assign _hero_i = 0 -%}
+    <h1 class="hero-name" aria-label="{{ _hero_name }}">
+      {%- for _word in _hero_words -%}
+        {%- assign _is_last_word = forloop.last -%}
+        <span class="hero-name__word" aria-hidden="true">
+          {%- assign _chars = _word | split: "" -%}
+          {%- for _c in _chars -%}<span class="hero-name__char" style="--i: {{ _hero_i }}">{{ _c }}</span>{%- assign _hero_i = _hero_i | plus: 1 -%}{%- endfor -%}
+        </span>{% unless _is_last_word %}{{ " " }}{% endunless %}
+      {%- endfor -%}
+    </h1>
     <p class="portfolio-hero__tagline">Ingénieur développement junior</p>
     <p>Ingénieur développement junior chez Netceler. Diplômé de l'ESIGELEC (dominante ISN, promotion 2026). Je construis des applications Java côté entreprise, et je bricole des projets perso sur mon temps libre. Ce site rassemble mon parcours, mes projets, et mes notes techniques.</p>
     <p class="portfolio-hero__disclaimer">Le contenu de ce site (notes, opinions) m'engage personnellement et ne reflète pas la position de Netceler.</p>

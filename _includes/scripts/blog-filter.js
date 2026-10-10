@@ -25,7 +25,8 @@
     return showAllButton;
   }
 
-  function selectTag(tag, target) {
+  function selectTag(tag, target, animate) {
+    var order = 0;
     sections.forEach(function (section) {
       var cards = section.querySelectorAll('.recent-post-card');
       var visibleCount = 0;
@@ -33,7 +34,17 @@
         var tags = (card.getAttribute('data-tags') || '').split(',');
         var visible = !tag || tags.indexOf(tag) !== -1;
         card.classList.toggle('d-none', !visible);
-        if (visible) { visibleCount += 1; }
+        if (visible) {
+          visibleCount += 1;
+          if (animate) {
+            card.classList.add('is-visible');
+            card.classList.remove('is-filtered-in');
+            void card.offsetWidth;
+            card.style.animationDelay = (Math.min(order, 10) * 45) + 'ms';
+            card.classList.add('is-filtered-in');
+            order += 1;
+          }
+        }
       });
       section.classList.toggle('d-none', visibleCount === 0);
     });
@@ -48,7 +59,7 @@
   tagsRoot.addEventListener('click', function (e) {
     var button = e.target.closest('button');
     if (!button) { return; }
-    selectTag(button.getAttribute('data-encode'), button);
+    selectTag(button.getAttribute('data-encode'), button, true);
   });
 
   var initialTag = new URLSearchParams(window.location.search).get('tag');
