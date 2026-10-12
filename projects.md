@@ -86,6 +86,14 @@ Quelques projets perso sur lesquels j'ai travaillé, et les certifications que j
 <h2 class="timeline-section__heading">Certifications</h2>
 <div class="projects">
 
+<div class="project-card">
+<div class="project-card__header">
+<h3 class="project-card__title">TOEIC</h3>
+</div>
+<p class="project-card__desc">Test of English for International Communication · ESIGELEC · Février 2026</p>
+<p class="project-card__score"><strong>855</strong> / 990</p>
+</div>
+
 <a class="project-card" href="https://app.amigoscode.com/courses/267273/certificate" target="_blank" rel="noopener">
 <div class="project-card__header">
 <h3 class="project-card__title">Spring Boot for Beginners</h3>
