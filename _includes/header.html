@@ -18,7 +18,7 @@
         {%- if site.search.provider -%}
           <button class="button button--secondary button--circle search-button js-search-toggle"><i class="fas fa-search"></i></button>
         {%- endif -%}
-        <button class="button button--secondary button--circle js-nav-toggle" title="Menu" aria-label="Menu"><i class="fas fa-bars"></i></button>
+        <button class="button button--secondary button--circle js-nav-toggle" title="Menu" aria-label="Menu" aria-expanded="false"><span class="burger" aria-hidden="true"><span></span><span></span><span></span></span></button>
       </div>
       {%- if site.data.navigation.header -%}
       <nav class="navigation js-navigation">
@@ -35,6 +35,7 @@
               <li class="navigation__item"><a href="{{ _nav_url }}">{%- if _item.title -%}{{ _item.title }}{%- else -%}{{ __return }}{%- endif -%}</a></li>
             {%- endif -%}
           {%- endfor -%}
+          <li class="navigation__cta"><a class="button button--primary button--pill" href="https://www.linkedin.com/in/{{ site.author.linkedin }}" target="_blank" rel="noopener">Me contacter</a></li>
           {%- if site.search.provider -%}
             <li><button class="button button--secondary button--circle search-button js-search-toggle"><i class="fas fa-search"></i></button></li>
           {%- endif -%}
