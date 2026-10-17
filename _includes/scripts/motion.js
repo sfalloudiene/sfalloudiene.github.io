@@ -60,7 +60,7 @@
   (function () {
     var list = document.querySelector('.header .js-navigation > ul');
     if (!list || !window.matchMedia) { return; }
-    var wide = window.matchMedia('(min-width: 500px)');
+    var wide = window.matchMedia('(min-width: 768px)');
     var links = list.querySelectorAll('.navigation__item a');
     if (!links.length) { return; }
 
