@@ -62,6 +62,9 @@
     selectTag(button.getAttribute('data-encode'), button, true);
   });
 
-  var initialTag = new URLSearchParams(window.location.search).get('tag');
+  // Valeur brute (non decodee) : data-encode et data-tags contiennent les tags
+  // tels qu'encodes par url_encode en Liquid (ex. "S%C3%A9curit%C3%A9").
+  var match = window.location.search.match(/[?&]tag=([^&]*)/);
+  var initialTag = match ? match[1] : null;
   selectTag(initialTag, findButtonByTag(initialTag));
 })();
