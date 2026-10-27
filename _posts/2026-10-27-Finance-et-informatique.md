@@ -11,29 +11,21 @@ article_header:
     src: https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=2000&q=80&auto=format&fit=crop
 ---
 
-À partir de maintenant, je vais aussi publier des notes sur la finance : bourse, ETF, frais, intérêts composés… Mais toujours avec un œil de développeur.
+En plus des notes techniques, je vais publier des articles sur la finance : bourse, actions, ETF.
 
 <!--more-->
-## Pourquoi la finance ?
-Parce que ça m'intéresse depuis un moment, et que j'y ai déjà mis les mains côté code : pendant mes études, j'ai développé [ESIG'Trade Terminal]({{ '/projects.html' | relative_url }}), un terminal boursier en temps réel pour suivre le CAC 40.
+## Pourquoi ?
+À côté du développement, j'investis déjà en bourse, dans des actions et des ETF. Et j'apprends en lisant : en ce moment, c'est [La Bourse pour les Nuls](https://www.fnac.com/a10473700/Pour-Les-Nuls-4eme-edition-La-Bourse-pour-les-Nuls-grand-format-6e-ed-Gerard-Horny) de Gérard Horny, que je trouve vraiment intéressant.
 
-Et plus je creuse, plus je me rends compte que la finance, c'est beaucoup de mécanismes qu'on peut modéliser, calculer et tester. Un ETF, des frais de gestion, un rendement composé sur vingt ans : tout ça se met en équations, et donc en code.
+Ce blog me sert déjà à mettre au propre ce que j'apprends en informatique. Je vais faire pareil avec la finance, et mélanger les deux quand c'est possible : un ETF, des frais ou des intérêts composés, ça se calcule, et donc ça se code.
 
-## Ce que vous trouverez ici
-- Comment fonctionnent vraiment les produits dont tout le monde parle : un ETF, un indice, la différence entre réplication physique et synthétique
-- Des calculs concrets, en code : l'impact réel des frais sur un placement long terme, les intérêts composés
-- Des notes plus techniques : récupérer des cours de bourse via une API, les stocker, les analyser
-- Les pièges qu'on rencontre quand on code ces sujets, comme les backtests trop beaux pour être vrais
-- Un retour d'expérience sur ESIG'Trade Terminal
+## Au programme
+- Les bases : comment fonctionnent une action, un ETF, un indice
+- Ce que je retiens de mes lectures
+- Des calculs en code, comme l'impact des frais sur un placement long terme
+- Des sujets plus techniques, comme récupérer des cours de bourse via une API
 
-## Ce que vous ne trouverez pas ici
-- Des conseils d'investissement. Je ne vous dirai jamais quoi acheter ou vendre.
-- Des promesses de rendement ou des "stratégies gagnantes".
-- Mon portefeuille personnel.
+## Ce que ce n'est pas
+Ce sont des notes d'apprentissage, pas des conseils en investissement. Je ne dirai jamais quoi acheter ou vendre. Investir comporte un risque de perte en capital.
 
-**Tous les articles finance de ce site sont éducatifs et ne constituent pas un conseil en investissement.** Investir comporte un risque de perte en capital. Avant toute décision, renseignez-vous auprès de sources officielles ou d'un professionnel agréé.
-
-## Et les notes techniques ?
-Elles continuent, au même rythme. Les deux sujets vont cohabiter sur la même page, avec un tag **Finance** pour les articles finance : sur [la page des notes]({{ '/blog/' | relative_url }}), un clic sur ce tag n'affiche qu'eux. Et si vous êtes là uniquement pour Java et Spring, les autres tags font l'inverse.
-
-Le premier article arrive bientôt. À très vite !
+Les notes techniques continuent comme avant. Les articles finance auront le tag **Finance**, pour les retrouver facilement sur [la page des notes]({{ '/blog/' | relative_url }}).
