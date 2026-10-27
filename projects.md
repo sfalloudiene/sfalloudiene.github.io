@@ -88,6 +88,13 @@ Quelques projets perso sur lesquels j'ai travaillé, et les certifications que j
 
 <div class="project-card">
 <div class="project-card__header">
+<h3 class="project-card__title">Citoyen sauveteur</h3>
+</div>
+<p class="project-card__desc">Formation aux gestes de premiers secours · D'un Seul Geste – PLS Experience · Valence · 10 mars 2026 · 1 h</p>
+</div>
+
+<div class="project-card">
+<div class="project-card__header">
 <h3 class="project-card__title">TOEIC</h3>
 </div>
 <p class="project-card__desc">Test of English for International Communication · ESIGELEC · Février 2026</p>
